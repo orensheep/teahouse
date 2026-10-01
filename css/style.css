@@ -375,19 +375,28 @@ strong { font-weight: 700; }
   z-index: -2;
 }
 
-.cover__bg img {
+.cover__bg img,
+.cover__video {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+/* Black scrim over the video, a little deeper behind the copy so the text
+   stays readable however bright the current frame is. */
 .cover::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(0, 0, 0, 0.6);
+  background:
+    radial-gradient(ellipse 62% 58% at 50% 46%, rgba(0, 0, 0, 0.35), transparent 72%),
+    rgba(0, 0, 0, 0.6);
 }
+
+.cover .sh,
+.cover .prose { text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55); }
 
 /* fade the cover into the page colour so the hard edge disappears */
 .cover::after {

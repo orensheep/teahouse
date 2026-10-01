@@ -27,7 +27,14 @@
   <main class="page page--cover">
     <!-- Cover -->
     <section class="cover">
-      <div class="cover__bg" data-parallax="-0.25"><img src="assets/hightable/cover.webp" alt="" width="1440" height="1024" fetchpriority="high"></div>
+      <div class="cover__bg" data-parallax="-0.25">
+        <video class="cover__video" autoplay muted loop playsinline preload="auto" poster="assets/hightable/cover-poster.webp" aria-hidden="true">
+          <source src="assets/hightable/cover-960.webm" type="video/webm" media="(max-width: 767px)">
+          <source src="assets/hightable/cover-960.mp4" type="video/mp4" media="(max-width: 767px)">
+          <source src="assets/hightable/cover.webm" type="video/webm">
+          <source src="assets/hightable/cover.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="section">
         <header class="sh sh--intro" data-stagger>
           <p class="sh__cat">BRAND UNIVERSE / NFT MEMBERSHIP / ART-DIRECTION</p>
@@ -36,7 +43,7 @@
         </header>
         <div class="prose" data-reveal style="--i:3">
           <p>DeFi protocols speak in the language of APY percentages, liquidity ratios, and wallet addresses. This works for power users — but creates an invisible wall for everyone else.</p>
-          <p class="sp">The brief was open-ended: create something that gives the brand personality, builds loyalty, and drives platform adoption. My answer was the HighTable — a fictional underground society of elite DeFi operators, drawn from four distinct archetypes.</p>
+          <p class="sp">The brief was open-ended: create something that gives the brand personality, builds loyalty, and drives platform adoption. Our answer was the HighTable — a fictional underground society of elite DeFi operators, drawn from four distinct archetypes.</p>
           <p>But rather than simply launching a PFP collection, we designed a <strong>complete creative system</strong> with a psychological entry mechanic, a visual evolution from mystery to reveal, two tiered membership identities, and a physical brand artefacts — all anchored by a narrative that made ownership feel like belonging.</p>
         </div>
       </div>
@@ -94,7 +101,6 @@
       <header class="sh" data-stagger>
         <p class="sh__cat">DESIGN</p>
         <h2 class="sh__title">Color Palette. Typeface.</h2>
-        <p class="sh__sub">Both collections are live on OpenSea — 5,566 VIP and 21 OG</p>
       </header>
     </section>
 

@@ -67,6 +67,20 @@
     sync();
   });
 
+  // Background videos only play while on screen, and never under reduced motion.
+  document.querySelectorAll(".cover__video").forEach((video) => {
+    if (reduceMotion) {
+      video.removeAttribute("autoplay");
+      video.pause();
+      return;
+    }
+    if (!("IntersectionObserver" in window)) return;
+    new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) video.play().catch(() => {});
+      else video.pause();
+    }).observe(video);
+  });
+
   const nav = document.querySelector(".nav");
   const progress = document.querySelector(".progress");
   const parallax = reduceMotion ? [] : [...document.querySelectorAll("[data-parallax]")];
