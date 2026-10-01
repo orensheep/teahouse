@@ -67,6 +67,69 @@
     sync();
   });
 
+  // NFT wall: while the grid is on screen, each tile swaps to a random piece
+  // from the pool every 2–5 s. A piece is never shown in two tiles at once.
+  document.querySelectorAll("[data-nft-pool]").forEach((grid) => {
+    if (reduceMotion) return;
+    let pool;
+    try { pool = JSON.parse(grid.dataset.nftPool); } catch { return; }
+    const tiles = [...grid.querySelectorAll(".thumb")];
+    if (pool.length <= tiles.length) return;
+
+    const showing = new Set(tiles.map((tile) => tile.querySelector("img").getAttribute("src")));
+    const timers = new Map();
+    let active = false;
+
+    const randomDelay = () => 2000 + Math.random() * 3000;
+
+    const swap = async (tile) => {
+      const current = tile.querySelector("img:last-of-type");
+      const choices = pool.filter((src) => !showing.has(src));
+      const next = choices[Math.floor(Math.random() * choices.length)];
+      showing.add(next);
+      const img = new Image();
+      img.src = next;
+      img.alt = current.alt;
+      img.className = "is-entering";
+      try { await img.decode(); } catch { showing.delete(next); return; }
+      if (!active) { showing.delete(next); return; }
+      tile.appendChild(img);
+      requestAnimationFrame(() => requestAnimationFrame(() => img.classList.add("is-shown")));
+      img.addEventListener("transitionend", () => {
+        showing.delete(current.getAttribute("src"));
+        current.remove();
+      }, { once: true });
+    };
+
+    const schedule = (tile) => {
+      timers.set(tile, setTimeout(async () => {
+        if (!active) return;
+        await swap(tile);
+        if (active) schedule(tile);
+      }, randomDelay()));
+    };
+
+    const start = () => {
+      if (active) return;
+      active = true;
+      tiles.forEach(schedule);
+    };
+    const stop = () => {
+      active = false;
+      timers.forEach(clearTimeout);
+      timers.clear();
+    };
+
+    let inView = false;
+    new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      inView && !document.hidden ? start() : stop();
+    }, { threshold: 0.2 }).observe(grid);
+    document.addEventListener("visibilitychange", () => {
+      inView && !document.hidden ? start() : stop();
+    });
+  });
+
   // Background videos only play while on screen, and never under reduced motion.
   document.querySelectorAll(".cover__video").forEach((video) => {
     if (reduceMotion) {
