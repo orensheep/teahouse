@@ -481,8 +481,7 @@ strong { font-weight: 700; }
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 12px;
-  background: #000;
+  background: var(--bg); /* the video's backdrop is graded to the page colour */
 }
 
 .capture {
