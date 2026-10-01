@@ -130,6 +130,26 @@
     });
   });
 
+  // Play-once videos: play when the section comes into view, stop on the last
+  // frame, and only replay after the visitor scrolls away and back again.
+  document.querySelectorAll(".once-video").forEach((video) => {
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      video.controls = true; // still playable on demand
+      return;
+    }
+    let armed = true;
+    new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) {
+        armed = true;
+        video.pause();
+      } else if (armed && entry.intersectionRatio >= 0.6) {
+        armed = false;
+        video.currentTime = 0;
+        video.play().catch(() => { armed = true; });
+      }
+    }, { threshold: [0, 0.6] }).observe(video);
+  });
+
   // Background videos only play while on screen, and never under reduced motion.
   document.querySelectorAll(".cover__video").forEach((video) => {
     if (reduceMotion) {

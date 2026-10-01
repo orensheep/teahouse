@@ -475,6 +475,16 @@ strong { font-weight: 700; }
 
 .swatch--outline { border: 1px solid #c2c2c2; }
 
+.once-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #000;
+}
+
 .capture {
   width: min(721px, calc(100% - 2 * var(--gutter)));
   display: flex;
@@ -906,7 +916,6 @@ strong { font-weight: 700; }
   .thumbs { width: min(var(--col), calc(100% - 2 * var(--gutter))); gap: 18px; }
 
   .block--opensea { width: min(var(--col), calc(100% - 2 * var(--gutter))); }
-  .block--opensea img { aspect-ratio: 702 / 375; object-fit: cover; object-position: 50% 62%; }
 
   .palette { width: min(600px, calc(100% - 2 * var(--gutter))); height: 611px; gap: 10px; }
   .swatch { font-size: 19px; }
@@ -1091,7 +1100,6 @@ strong { font-weight: 700; }
   .characters { width: calc(100% - 2 * var(--gutter)); }
   .thumbs { width: calc(100% - 2 * var(--gutter)); grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .block--opensea { width: calc(100% - 2 * var(--gutter)); }
-  .block--opensea img { aspect-ratio: 346 / 185; object-position: 50% 58%; }
 
   .palette { width: min(346px, calc(100% - 2 * var(--gutter))); height: 352px; gap: 6px; }
   .swatch { font-size: 11px; }
