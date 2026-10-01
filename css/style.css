@@ -817,3 +817,125 @@ strong { font-weight: 700; }
 
 .token-label p { margin: 0; }
 .token-label .muted { font-size: 14px; color: #adb5bd; }
+
+/* ==========================================================================
+   Tablet (≤ 1199px) — from the Figma 810px frames.
+   The three tablet frames disagree on column width (702 vs 730), section gap
+   (96 vs 84) and type scale; they are normalised to the Teahouse / Tea-REX
+   values, which two of the three pages share.
+   ========================================================================== */
+
+.only-tablet { display: none !important; }
+
+@media (max-width: 1199px) {
+  :root {
+    --page-top: 185px;
+    --page-bottom: 72px;
+    --section-gap: 84px;
+    --col: 730px;
+    --header-w: 730px;
+    --gutter: 40px;
+    --nav-h: 64px;
+  }
+
+  .only-desktop { display: none !important; }
+  .only-tablet { display: revert !important; }
+  div.only-tablet { display: block !important; }
+  .stack.only-tablet { display: flex !important; }
+
+  /* nav */
+  .nav__inner { width: 100%; padding: 0 var(--gutter); }
+  .nav__brand { font-size: 22px; }
+  .nav__links { gap: 32px; }
+  .nav__links a { font-size: 15px; }
+
+  /* headers wrap instead of overflowing the narrower column */
+  .sh__title { white-space: normal; text-wrap: balance; line-height: 1.15; }
+  .sh__sub { text-wrap: balance; }
+
+  .block { width: min(var(--tw, var(--w, 100%)), calc(100% - 2 * var(--gutter))); }
+  .block--bleed { width: min(var(--tw, var(--w, 1440px)), 100%); }
+
+  /* details footer: full-width bar with a single top rule */
+  .details { width: 100%; padding: 0 20px; gap: 20px; }
+  .details__rule:last-child { display: none; }
+  .details__row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .details__row > div { min-width: 150px; }
+  .details__value { font-size: 13px; }
+
+  /* ---------- HighTable ---------- */
+  .cover { height: 760px; }
+
+  .characters { display: block; width: min(var(--col), calc(100% - 2 * var(--gutter))); }
+  .characters img { width: 100%; }
+
+  .thumbs { width: min(var(--col), calc(100% - 2 * var(--gutter))); gap: 18px; }
+
+  .block--opensea { width: min(var(--col), calc(100% - 2 * var(--gutter))); }
+  .block--opensea img { aspect-ratio: 702 / 375; object-fit: cover; object-position: 50% 62%; }
+
+  .palette { width: min(600px, calc(100% - 2 * var(--gutter))); height: 611px; gap: 10px; }
+  .swatch { font-size: 19px; }
+  .swatch img { width: 79%; height: auto; }
+  .swatch:nth-child(6) img { width: 70%; }
+
+  .capture { width: min(600px, calc(100% - 2 * var(--gutter))); gap: 18px; }
+  .caption { font-size: 20px; line-height: 20px; }
+
+  .expansion { width: min(var(--col), calc(100% - 2 * var(--gutter))); gap: 20px; }
+  .expansion__cards { gap: 20px; }
+  .ht-card { gap: 16px; padding: 24px; }
+  .ht-card__cat { font-size: 12px; letter-spacing: 1.2px; }
+  .ht-card__title { font-size: 22px; }
+  .ht-card__body { font-size: 15px; line-height: 1.55; }
+  .ht-list { padding: 10px 6px; }
+  .ht-list li { padding: 0 4px; gap: 8px; }
+
+  .ht-quiz {
+    padding: 16px;
+    background: #14193d;
+    border: 1px solid #222a68;
+    border-radius: 5px;
+  }
+  .ht-quiz .ht-button { max-width: none; }
+
+  .table-real { height: 440px; }
+  .table-real__panel {
+    position: relative;
+    height: auto;
+    gap: 24px;
+    padding: 28px;
+    justify-content: flex-start;
+  }
+  .table-real__text { flex: 0 0 326px; gap: 8px; padding: 0; }
+  .table-real__photo { flex: 1 1 auto; height: 220px; margin: 0; border-radius: 10px; }
+  .table-real__wallet { left: 52.7%; top: 199px; width: 26.4%; }
+  .table-real__boards { left: 67%; top: 199px; width: 33.8%; }
+
+  /* ---------- Teahouse ---------- */
+  .persona { grid-template-columns: 1fr; gap: 30px; }
+  .persona__features { gap: 30px; }
+  .feature { gap: 12px; }
+
+  .stack[style*="gap:100px"] { gap: 56px !important; }
+  .stack img[style*="margin-top:81px"] { margin-top: 52px !important; }
+  .stack img[style*="margin-top:64px"] { margin-top: 40px !important; }
+
+  .awards { width: min(var(--col), calc(100% - 2 * var(--gutter))); gap: 32px; }
+
+  /* ---------- Tea-REX ---------- */
+  .subhead { width: min(var(--col), calc(100% - 2 * var(--gutter))); }
+  .jungle {
+    width: min(var(--col), calc(100% - 2 * var(--gutter)));
+    grid-template-columns: 1fr;
+    gap: 30px;
+    justify-items: center;
+  }
+  .jungle .subhead { width: 100% !important; }
+  .jungle img { width: 625px; max-width: 100%; }
+}
