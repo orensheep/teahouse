@@ -37,17 +37,17 @@
       </div>
     </section>
 
-    <div class="block" style="--w:415px" data-reveal="zoom">
-      <img src="assets/tearex/rawr-logo.webp" alt="RAWR Energy — Tea-REX logo with Rex in a teacup" width="415" height="217">
+    <div class="block" style="--mw:325px; --w:415px" data-reveal="zoom">
+      <picture><source media="(max-width: 767px)" srcset="assets/tearex/rawr-logo.webp" width="415" height="217"><img src="assets/tearex/rawr-logo.webp" alt="RAWR Energy — Tea-REX logo with Rex in a teacup" width="415" height="217"></picture>
     </div>
 
     <div class="block" style="--w:1100px" data-reveal="wipe">
-      <img src="assets/tearex/panel-layout.webp" alt="The 3+1 panel layout: nav, market, price chart and trade panel" width="1100" height="625" loading="lazy">
+      <picture><source media="(max-width: 767px)" srcset="assets/tearex/panel-layout-mobile.webp" width="416" height="233"><img src="assets/tearex/panel-layout.webp" alt="The 3+1 panel layout: nav, market, price chart and trade panel" width="1100" height="625" loading="lazy"></picture>
     </div>
 
     <div class="block stack" style="--w:1100px; gap:57px">
-      <img src="assets/tearex/terminal-desktop.webp" alt="Tea-REX desktop trading terminal" width="1100" height="763" loading="lazy" data-reveal="scale">
-      <img src="assets/tearex/terminal-mobile.webp" alt="Tea-REX mobile market list, trade screen and settings" width="1098" height="1364" loading="lazy" data-reveal="scale">
+      <picture><source media="(max-width: 767px)" srcset="assets/tearex/terminal-desktop-mobile.webp" width="416" height="282"><img src="assets/tearex/terminal-desktop.webp" alt="Tea-REX desktop trading terminal" width="1100" height="763" loading="lazy" data-reveal="scale"></picture>
+      <picture><source media="(max-width: 767px)" srcset="assets/tearex/terminal-mobile-mobile.webp" width="407" height="506"><img src="assets/tearex/terminal-mobile.webp" alt="Tea-REX mobile market list, trade screen and settings" width="1098" height="1364" loading="lazy" data-reveal="scale"></picture>
     </div>
 
     <!-- Mascot -->
@@ -64,7 +64,7 @@
     </section>
 
     <div class="block" style="--w:1106px" data-reveal="wipe">
-      <img src="assets/tearex/position-card.webp" alt="My Positions on mobile and the position card: Rex's face tracks position health" width="1106" height="753" loading="lazy">
+      <picture><source media="(max-width: 767px)" srcset="assets/tearex/position-card-mobile.webp" width="405" height="326"><img src="assets/tearex/position-card.webp" alt="My Positions on mobile and the position card: Rex's face tracks position health" width="1106" height="753" loading="lazy"></picture>
     </div>
 
     <div class="stack" style="gap:27px">
@@ -72,8 +72,8 @@
         <h3 class="subhead__title">Rex is the gauge.</h3>
         <p>Three states — thriving, uneasy, in trouble. You know how the position is doing before you read a single number.</p>
       </div>
-      <div class="block" style="--w:1103px; --tw:625px" data-reveal="right">
-        <picture><source media="(max-width: 1199px)" srcset="assets/tearex/rex-states-tablet.webp" width="625" height="172"><img src="assets/tearex/rex-states.webp" alt="Twelve Rex states from rich to RIP" width="1103" height="80" loading="lazy"></picture>
+      <div class="block" style="--mw:287px; --w:1103px; --tw:625px" data-reveal="right">
+        <picture><source media="(max-width: 767px)" srcset="assets/tearex/rex-states-mobile.webp" width="287" height="385"><source media="(max-width: 1199px)" srcset="assets/tearex/rex-states-tablet.webp" width="625" height="172"><img src="assets/tearex/rex-states.webp" alt="Twelve Rex states from rich to RIP" width="1103" height="80" loading="lazy"></picture>
       </div>
     </div>
 
@@ -82,10 +82,15 @@
         <h3 class="subhead__title">Actions speak jungle.</h3>
         <p style="font-family:Inter,sans-serif">Feed me adds collateral. Close exits. The verbs come from the world, not from the exchange. Every icon is pixel art — bones, potions, meat, gems. A trading terminal you'd recognize from a thumbnail.</p>
       </div>
-      <picture><source media="(max-width: 1199px)" srcset="assets/tearex/pixel-icons-tablet.webp" width="625" height="105"><img src="assets/tearex/pixel-icons.webp" alt="Pixel-art icon set: bones, potions, meat, gems" width="444" height="104" loading="lazy" data-reveal="zoom"></picture>
+      <picture><source media="(max-width: 767px)" srcset="assets/tearex/pixel-icons-mobile.webp" width="359" height="238"><source media="(max-width: 1199px)" srcset="assets/tearex/pixel-icons-tablet.webp" width="625" height="105"><img src="assets/tearex/pixel-icons.webp" alt="Pixel-art icon set: bones, potions, meat, gems" width="444" height="104" loading="lazy" data-reveal="zoom"></picture>
     </div>
 
-    <div class="block" style="--w:1172px" data-reveal="scale">
+    <div class="block stack only-mobile" style="gap:24px" data-reveal="scale">
+      <img src="assets/tearex/rewards-emission-mobile.webp" alt="$TReX token emission card" width="393" height="297" loading="lazy">
+      <img src="assets/tearex/rewards-welcome-mobile.webp" alt="Welcome to the Age of $TReX card" width="401" height="207" loading="lazy">
+    </div>
+
+    <div class="block hide-mobile" style="--w:1172px" data-reveal="scale">
       <picture><source media="(max-width: 1199px)" srcset="assets/tearex/rewards-cards-tablet.webp" width="730" height="256"><img src="assets/tearex/rewards-cards.webp" alt="Rewards cards: $TReX token emission, welcome card and My Stake" width="1172" height="256" loading="lazy"></picture>
     </div>
 
@@ -106,7 +111,7 @@
         <p class="muted">Raw values. No component ever references these directly.</p>
       </div>
       <div class="block" style="--w:718px" data-reveal="wipe">
-        <img src="assets/tearex/primitive-scales.webp" alt="Primitive color scales, five hues from 50 to 950" width="718" height="337" loading="lazy">
+        <picture><source media="(max-width: 767px)" srcset="assets/tearex/primitive-scales-mobile.webp" width="416" height="194"><img src="assets/tearex/primitive-scales.webp" alt="Primitive color scales, five hues from 50 to 950" width="718" height="337" loading="lazy"></picture>
       </div>
     </div>
 
@@ -116,7 +121,7 @@
         <p class="muted">surface/action doesn't say "purple" — which is why the theme can change without touching a component.</p>
       </div>
       <div class="block" style="--w:824px" data-reveal="wipe">
-        <img src="assets/tearex/semantic-tokens.webp" alt="Semantic surface and border tokens" width="824" height="360" loading="lazy">
+        <picture><source media="(max-width: 767px)" srcset="assets/tearex/semantic-tokens-mobile.webp" width="399" height="412"><img src="assets/tearex/semantic-tokens.webp" alt="Semantic surface and border tokens" width="824" height="360" loading="lazy"></picture>
       </div>
     </div>
 
@@ -125,13 +130,13 @@
         <p><strong>Component Library&nbsp; ·</strong> Buttons · Tags · every state</p>
         <p class="muted">Default, hover, loading, disabled — drawn, not described. Six tag variants share one shell.</p>
       </div>
-      <div class="block block--bleed" style="--w:1440px; --tw:531px" data-reveal="fade">
-        <picture><source media="(max-width: 1199px)" srcset="assets/tearex/components-tablet.webp" width="531" height="533"><img src="assets/tearex/components.webp" alt="Button and tag components in every state" width="1440" height="335" loading="lazy"></picture>
+      <div class="block block--bleed" style="--mw:303px; --w:1440px; --tw:531px" data-reveal="fade">
+        <picture><source media="(max-width: 767px)" srcset="assets/tearex/components-mobile.webp" width="303" height="305"><source media="(max-width: 1199px)" srcset="assets/tearex/components-tablet.webp" width="531" height="533"><img src="assets/tearex/components.webp" alt="Button and tag components in every state" width="1440" height="335" loading="lazy"></picture>
       </div>
     </div>
 
     <div class="block" style="--w:1062px" data-reveal="scale">
-      <img src="assets/tearex/typography.webp" alt="Typography scale and primitive-to-semantic text tokens" width="1062" height="435" loading="lazy">
+      <picture><source media="(max-width: 767px)" srcset="assets/tearex/typography-mobile.webp" width="422" height="1030"><img src="assets/tearex/typography.webp" alt="Typography scale and primitive-to-semantic text tokens" width="1062" height="435" loading="lazy"></picture>
     </div>
 
     <div class="stack" style="width:100%">
@@ -140,7 +145,7 @@
         <p class="muted">Default, hover, loading, disabled — drawn, not described. Six tag variants share one shell.</p>
       </div>
       <div class="block block--bleed" style="--w:1440px" data-reveal="wipe">
-        <img src="assets/tearex/rewards-screens.webp" alt="Rewards page on desktop and mobile" width="1440" height="1761" loading="lazy">
+        <picture><source media="(max-width: 767px)" srcset="assets/tearex/rewards-screens-mobile.webp" width="398" height="2281"><img src="assets/tearex/rewards-screens.webp" alt="Rewards page on desktop and mobile" width="1440" height="1761" loading="lazy"></picture>
       </div>
     </div>
 
@@ -164,8 +169,8 @@
         <p><strong>TP/SL, read before it's read.</strong></p>
         <p class="muted">The bar reads faster than the numbers. Four numbers, one shape. You see the position before you read it.</p>
       </div>
-      <div class="block" style="--w:749px" data-reveal="fade">
-        <img src="assets/tearex/tpsl-tablet.webp" alt="TP/SL flow: from no TP/SL set to the card carrying the range" width="749" height="252" loading="lazy">
+      <div class="block" style="--mw:280px; --w:749px" data-reveal="fade">
+        <picture><source media="(max-width: 767px)" srcset="assets/tearex/tpsl-mobile.webp" width="280" height="408"><img src="assets/tearex/tpsl-tablet.webp" alt="TP/SL flow: from no TP/SL set to the card carrying the range" width="749" height="252" loading="lazy"></picture>
       </div>
     </div>
 
@@ -174,8 +179,8 @@
         <p><strong>Close Position, priced before you commit.</strong></p>
         <p class="muted">Four lines, in the order the money moves. The number you came for, and how it got there. No surprises at the bottom.</p>
       </div>
-      <div class="block" style="--w:608px" data-reveal="fade">
-        <img src="assets/tearex/close-tablet.webp" alt="Close Position flow with costs shown before confirming" width="608" height="269" loading="lazy">
+      <div class="block" style="--mw:262px; --w:608px" data-reveal="fade">
+        <picture><source media="(max-width: 767px)" srcset="assets/tearex/close-mobile.webp" width="262" height="408"><img src="assets/tearex/close-tablet.webp" alt="Close Position flow with costs shown before confirming" width="608" height="269" loading="lazy"></picture>
       </div>
     </div>
 

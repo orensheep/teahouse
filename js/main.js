@@ -28,6 +28,45 @@
     revealables.forEach((el) => observer.observe(el));
   }
 
+  // Swipe carousels: native scroll-snap does the swiping, the dots follow along.
+  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+    const track = carousel.querySelector(".carousel__track");
+    const slides = [...track.children];
+    const dotsWrap = carousel.querySelector(".carousel__dots");
+    const dots = slides.map((_, i) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "carousel__dot";
+      dot.setAttribute("aria-label", `Show step ${i + 1} of ${slides.length}`);
+      dot.addEventListener("click", () => goTo(i));
+      dotsWrap.appendChild(dot);
+      return dot;
+    });
+
+    const current = () => Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
+    const goTo = (i) => {
+      const index = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: index * track.clientWidth, behavior: reduceMotion ? "auto" : "smooth" });
+    };
+    const sync = () => {
+      const active = current();
+      dots.forEach((dot, i) => dot.setAttribute("aria-current", i === active ? "true" : "false"));
+      slides.forEach((slide, i) => slide.setAttribute("aria-hidden", i === active ? "false" : "true"));
+    };
+
+    let frame = 0;
+    track.addEventListener("scroll", () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(sync);
+    }, { passive: true });
+    track.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+      event.preventDefault();
+      goTo(current() + (event.key === "ArrowRight" ? 1 : -1));
+    });
+    sync();
+  });
+
   const nav = document.querySelector(".nav");
   const progress = document.querySelector(".progress");
   const parallax = reduceMotion ? [] : [...document.querySelectorAll("[data-parallax]")];

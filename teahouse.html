@@ -42,7 +42,7 @@
 
     <div class="stack">
       <div class="block block--bleed" style="--w:1440px" data-reveal="scale">
-        <img src="assets/teahouse/hero.webp" alt="Teahouse wordmark above the Teahouse.Finance landing page" width="1440" height="1478">
+        <picture><source media="(max-width: 767px)" srcset="assets/teahouse/hero-mobile.webp" width="390" height="535"><img src="assets/teahouse/hero.webp" alt="Teahouse wordmark above the Teahouse.Finance landing page" width="1440" height="1478"></picture>
       </div>
       <p class="live-link" data-reveal>View Live <a href="https://teahouse.finance/" target="_blank" rel="noopener">Teahouse.finance</a></p>
     </div>
@@ -61,7 +61,7 @@
       </div>
     </section>
 
-    <div class="block" style="--w:489px" data-reveal="zoom">
+    <div class="block" style="--mw:264px; --w:489px" data-reveal="zoom">
       <img src="assets/teahouse/pools-wordmark.svg" alt="pools" width="489" height="154" loading="lazy">
     </div>
 
@@ -98,8 +98,8 @@
       </div>
     </section>
 
-    <div class="block block--bleed" style="--w:1440px; --tw:730px" data-reveal="wipe">
-      <picture><source media="(max-width: 1199px)" srcset="assets/teahouse/vaults-tablet.webp" width="730" height="1129"><img src="assets/teahouse/vaults.webp" alt="Pools vault index with chain filters, Find My Fit and vault rows" width="1440" height="1176" loading="lazy"></picture>
+    <div class="block block--bleed" style="--mw:min(350px, 100% - 40px); --w:1440px; --tw:730px" data-reveal="wipe">
+      <picture><source media="(max-width: 767px)" srcset="assets/teahouse/vaults-mobile.webp" width="350" height="975"><source media="(max-width: 1199px)" srcset="assets/teahouse/vaults-tablet.webp" width="730" height="1129"><img src="assets/teahouse/vaults.webp" alt="Pools vault index with chain filters, Find My Fit and vault rows" width="1440" height="1176" loading="lazy"></picture>
     </div>
 
     <!-- Deposit flow -->
@@ -113,12 +113,64 @@
       </div>
     </section>
 
-    <div class="block stack" style="--w:1246px; gap:100px">
+    <div class="carousel only-mobile" data-carousel aria-roledescription="carousel" aria-label="Deposit flow when everything works" data-reveal>
+      <div class="carousel__track" tabindex="0">
+        <figure class="carousel__slide" aria-roledescription="slide" aria-label="1 of 5">
+          <figcaption><p class="carousel__title">1. CONNECT</p><p class="carousel__desc">The button is the only thing you can do.</p></figcaption>
+          <img src="assets/teahouse/flow/ok-1.webp" alt="" width="280" height="287" loading="lazy">
+        </figure>
+        <figure class="carousel__slide" aria-roledescription="slide" aria-label="2 of 5">
+          <figcaption><p class="carousel__title">2. ENTER</p><p class="carousel__desc">Both actions inert until there's an amount to act on</p></figcaption>
+          <img src="assets/teahouse/flow/ok-2.webp" alt="" width="280" height="333" loading="lazy">
+        </figure>
+        <figure class="carousel__slide" aria-roledescription="slide" aria-label="3 of 5">
+          <figcaption><p class="carousel__title">3. APPROVE</p><p class="carousel__desc">Take user to check on the wallet.</p></figcaption>
+          <img src="assets/teahouse/flow/ok-3.webp" alt="" width="280" height="402" loading="lazy">
+        </figure>
+        <figure class="carousel__slide" aria-roledescription="slide" aria-label="4 of 5">
+          <figcaption><p class="carousel__title">4. DEPOSIT</p><p class="carousel__desc">Approve dims, Deposit lights. Progress through the two transactions stays legible</p></figcaption>
+          <img src="assets/teahouse/flow/ok-4.webp" alt="" width="280" height="422" loading="lazy">
+        </figure>
+        <figure class="carousel__slide" aria-roledescription="slide" aria-label="5 of 5">
+          <figcaption><p class="carousel__title">5. RESULT</p><p class="carousel__desc">"You now hold 16 shares" — a position. Balance drops 179 → 19.</p></figcaption>
+          <img src="assets/teahouse/flow/ok-5.webp" alt="" width="280" height="400" loading="lazy">
+        </figure>
+      </div>
+      <div class="carousel__dots"></div>
+    </div>
+
+    <div class="carousel only-mobile" data-carousel aria-roledescription="carousel" aria-label="Deposit flow when something goes wrong" data-reveal>
+      <div class="carousel__track" tabindex="0">
+        <figure class="carousel__slide" aria-roledescription="slide" aria-label="1 of 5">
+          <figcaption><p class="carousel__title">1. CONNECT</p><p class="carousel__desc">Wallet on the wrong chain. The primary button becomes Switch to Ethereum</p></figcaption>
+          <img src="assets/teahouse/flow/err-1.webp" alt="" width="280" height="287" loading="lazy">
+        </figure>
+        <figure class="carousel__slide" aria-roledescription="slide" aria-label="2 of 5">
+          <figcaption><p class="carousel__title">2. ENTER</p><p class="carousel__desc">If user input the amount exceed the balance, adjust it to max.</p></figcaption>
+          <img src="assets/teahouse/flow/err-2.webp" alt="" width="280" height="382" loading="lazy">
+        </figure>
+        <figure class="carousel__slide" aria-roledescription="slide" aria-label="3 of 5">
+          <figcaption><p class="carousel__title">3. APPROVE</p><p class="carousel__desc">Signature rejected in the wallet. The panel returns with the amount still typed, so restarting costs nothing.</p></figcaption>
+          <img src="assets/teahouse/flow/err-3.webp" alt="" width="280" height="400" loading="lazy">
+        </figure>
+        <figure class="carousel__slide" aria-roledescription="slide" aria-label="4 of 5">
+          <figcaption><p class="carousel__title">4a. DEPOSIT</p><p class="carousel__desc">The button is the only thing you can do, so that's what it says</p></figcaption>
+          <img src="assets/teahouse/flow/err-4.webp" alt="" width="280" height="422" loading="lazy">
+        </figure>
+        <figure class="carousel__slide" aria-roledescription="slide" aria-label="5 of 5">
+          <figcaption><p class="carousel__title">4b. DEPOSIT</p><p class="carousel__desc">The button is the only thing you can do, so that's what it says</p></figcaption>
+          <img src="assets/teahouse/flow/err-5.webp" alt="" width="280" height="401" loading="lazy">
+        </figure>
+      </div>
+      <div class="carousel__dots"></div>
+    </div>
+
+    <div class="block stack hide-mobile" style="--w:1246px; gap:100px">
       <img src="assets/teahouse/flow-happy.webp" alt="Deposit flow: connect, enter, approve, deposit, result" width="1246" height="437" loading="lazy" data-reveal="right">
       <img src="assets/teahouse/flow-errors.webp" alt="Deposit error states: wrong chain, over balance, rejected approval, rejected deposit, returned deposit" width="1245" height="459" loading="lazy" data-reveal="left">
     </div>
 
-    <div class="block" style="--w:638px" data-reveal="zoom">
+    <div class="block" style="--mw:264px; --w:638px" data-reveal="zoom">
       <img src="assets/teahouse/easyearn-wordmark.svg" alt="easy Earn" width="638" height="138" loading="lazy">
     </div>
 
@@ -156,7 +208,15 @@
       </div>
     </section>
 
-    <div class="block stack" style="--w:1150px">
+    <div class="block only-mobile" style="--mw:222px" data-reveal="fade">
+      <img src="assets/teahouse/coin-cards-mobile.webp" alt="Coin tokens and Easy-Earn cards for WBTC, ETH and USDC" width="222" height="927" loading="lazy">
+    </div>
+
+    <div class="block only-mobile" style="--mw:308px" data-reveal="wipe">
+      <img src="assets/teahouse/vault-detail-mobile.webp" alt="Easy-Earn vault stats, withdraw panel and my assets on mobile" width="308" height="1464" loading="lazy">
+    </div>
+
+    <div class="block stack hide-mobile" style="--w:1150px">
       <img src="assets/teahouse/tokens.webp" alt="Grid of coin tokens" width="1126" height="250" loading="lazy" data-reveal="fade" style="width:1126px;max-width:100%">
       <img src="assets/teahouse/coin-cards.webp" alt="Easy-Earn cards for WBTC, ETH and USDC" width="1122" height="356" loading="lazy" data-reveal style="width:1122px;max-width:100%;margin-top:81px">
       <img src="assets/teahouse/vault-detail.webp" alt="Easy-Earn vault detail with holdings, my assets and the deposit panel" width="1150" height="723" loading="lazy" data-reveal="wipe" style="margin-top:64px">
