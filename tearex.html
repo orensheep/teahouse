@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tea-REX — Oren</title>
+  <meta name="description" content="Tea-REX: design system, mascot and mobile-first design for a margin trading terminal on Sei.">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preload" href="fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-tearex">
+  <div class="progress" aria-hidden="true"></div>
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="index.html">oren<span>.</span></a>
+      <nav aria-label="Projects">
+        <ul class="nav__links">
+          <li><a href="hightable.html">HighTable</a></li>
+          <li><a href="teahouse.html">Teahouse</a></li>
+          <li><a href="tearex.html" aria-current="page">Tea-REX</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- Intro -->
+    <section class="section">
+      <header class="sh sh--intro" data-stagger>
+        <p class="sh__cat">DESIGN SYSTEM / MASCOT / MOBILE FIRST DESIGN</p>
+        <h1 class="sh__title">Tea-REX</h1>
+        <p class="sh__sub">A trading terminal with a personality.</p>
+      </header>
+      <div class="prose" data-reveal style="--i:3">
+        <p>Tea-REX is Teahouse Finance's margin trading product, built on Sei. I was the sole designer on the project, responsible for everything — the sub-brand identity, design system, and every screen across desktop and mobile. Unlike typical products, Tea-REX carries a distinctive T-Rex design language throughout the entire experience, making it unique and memorable.</p>
+      </div>
+    </section>
+
+    <div class="block" style="--w:415px" data-reveal="zoom">
+      <img src="assets/tearex/rawr-logo.webp" alt="RAWR Energy — Tea-REX logo with Rex in a teacup" width="415" height="217">
+    </div>
+
+    <div class="block" style="--w:1100px" data-reveal="wipe">
+      <img src="assets/tearex/panel-layout.webp" alt="The 3+1 panel layout: nav, market, price chart and trade panel" width="1100" height="625" loading="lazy">
+    </div>
+
+    <div class="block stack" style="--w:1100px; gap:57px">
+      <img src="assets/tearex/terminal-desktop.webp" alt="Tea-REX desktop trading terminal" width="1100" height="763" loading="lazy" data-reveal="scale">
+      <img src="assets/tearex/terminal-mobile.webp" alt="Tea-REX mobile market list, trade screen and settings" width="1098" height="1364" loading="lazy" data-reveal="scale">
+    </div>
+
+    <!-- Mascot -->
+    <section class="section">
+      <header class="sh" data-stagger>
+        <p class="sh__cat">MASCOT</p>
+        <h2 class="sh__title">One animal, carried all the way down.</h2>
+        <p class="sh__sub">RAAAAAAAAWR</p>
+      </header>
+      <div class="prose" data-reveal>
+        <p>A mascot that only appears on the marketing site is just a sticker. Rex had to survive the places where brand usually gets stripped out for being unserious — a leverage slider, an error state, a wallet button, a tokenomics page.</p>
+        <p><strong>Personality in the language. Never in the numbers.</strong></p>
+      </div>
+    </section>
+
+    <div class="block" style="--w:1106px" data-reveal="wipe">
+      <img src="assets/tearex/position-card.webp" alt="My Positions on mobile and the position card: Rex's face tracks position health" width="1106" height="753" loading="lazy">
+    </div>
+
+    <div class="stack" style="gap:27px">
+      <div class="subhead" data-stagger>
+        <h3 class="subhead__title">Rex is the gauge.</h3>
+        <p>Three states — thriving, uneasy, in trouble. You know how the position is doing before you read a single number.</p>
+      </div>
+      <div class="block" style="--w:1103px" data-reveal="right">
+        <img src="assets/tearex/rex-states.webp" alt="Twelve Rex states from rich to RIP" width="1103" height="80" loading="lazy">
+      </div>
+    </div>
+
+    <div class="jungle">
+      <div class="subhead" data-stagger style="width:auto">
+        <h3 class="subhead__title">Actions speak jungle.</h3>
+        <p style="font-family:Inter,sans-serif">Feed me adds collateral. Close exits. The verbs come from the world, not from the exchange. Every icon is pixel art — bones, potions, meat, gems. A trading terminal you'd recognize from a thumbnail.</p>
+      </div>
+      <img src="assets/tearex/pixel-icons.webp" alt="Pixel-art icon set: bones, potions, meat, gems" width="444" height="104" loading="lazy" data-reveal="zoom">
+    </div>
+
+    <div class="block" style="--w:1172px" data-reveal="scale">
+      <img src="assets/tearex/rewards-cards.webp" alt="Rewards cards: $TReX token emission, welcome card and My Stake" width="1172" height="256" loading="lazy">
+    </div>
+
+    <!-- Design system -->
+    <section class="section">
+      <header class="sh" data-stagger>
+        <p class="sh__cat">DESIGN SYSTEM</p>
+        <h2 class="sh__title">Tokens first. Components second.</h2>
+      </header>
+      <div class="prose" data-reveal>
+        <p>Primitive tokens hold the raw color. Semantic tokens hold the intent. Components only ever touch the second layer — so changing the brand color is one edit, not two hundred.</p>
+      </div>
+    </section>
+
+    <div class="stack">
+      <div class="token-label" data-stagger>
+        <p><strong>Primitive Scales</strong>&nbsp;&nbsp; Five hues · 50 → 950</p>
+        <p class="muted">Raw values. No component ever references these directly.</p>
+      </div>
+      <div class="block" style="--w:718px" data-reveal="wipe">
+        <img src="assets/tearex/primitive-scales.webp" alt="Primitive color scales, five hues from 50 to 950" width="718" height="337" loading="lazy">
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="token-label" data-stagger>
+        <p><strong>Semantic Tokens</strong> Surface · Border Every raw value gets a job.</p>
+        <p class="muted">surface/action doesn't say "purple" — which is why the theme can change without touching a component.</p>
+      </div>
+      <div class="block" style="--w:824px" data-reveal="wipe">
+        <img src="assets/tearex/semantic-tokens.webp" alt="Semantic surface and border tokens" width="824" height="360" loading="lazy">
+      </div>
+    </div>
+
+    <div class="stack" style="width:100%">
+      <div class="token-label" data-stagger>
+        <p><strong>Component Library&nbsp; ·</strong> Buttons · Tags · every state</p>
+        <p class="muted">Default, hover, loading, disabled — drawn, not described. Six tag variants share one shell.</p>
+      </div>
+      <div class="block block--bleed" style="--w:1440px" data-reveal="fade">
+        <img src="assets/tearex/components.webp" alt="Button and tag components in every state" width="1440" height="335" loading="lazy">
+      </div>
+    </div>
+
+    <div class="block block--bleed" style="--w:1440px" data-reveal="scale">
+      <img src="assets/tearex/typography.webp" alt="Typography scale and primitive-to-semantic text tokens" width="1440" height="435" loading="lazy">
+    </div>
+
+    <div class="stack" style="width:100%">
+      <div class="token-label" data-stagger>
+        <p><strong>Component Library&nbsp; ·</strong> Buttons · Tags · every state</p>
+        <p class="muted">Default, hover, loading, disabled — drawn, not described. Six tag variants share one shell.</p>
+      </div>
+      <div class="block block--bleed" style="--w:1440px" data-reveal="wipe">
+        <img src="assets/tearex/rewards-screens.webp" alt="Rewards page on desktop and mobile" width="1440" height="1761" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Product UX -->
+    <section class="section">
+      <header class="sh" data-stagger>
+        <p class="sh__cat">PRODUCT UX</p>
+        <h2 class="sh__title">Two features. Each a design problem.</h2>
+      </header>
+      <div class="prose" data-reveal>
+        <p>Every feature in Tea-REX came with its own design challenge. Here are two — decisions about information hierarchy, interaction patterns, and state management, not just visual styling.</p>
+      </div>
+    </section>
+
+    <div class="block block--bleed" style="--w:1440px" data-reveal="fade">
+      <img src="assets/tearex/features.webp" alt="TP/SL and Close Position flows" width="1440" height="1083" loading="lazy">
+    </div>
+
+    <!-- Closing -->
+    <section class="section">
+      <header class="sh" data-stagger>
+        <p class="sh__cat">WHAT THIS ABILITY ACTUALLY IS</p>
+        <h2 class="sh__title">It started with Rex.</h2>
+      </header>
+      <div class="prose prose--soft" data-reveal>
+        <p>A trading terminal doesn't need a mascot. It does need a reason people remember it — and most of them look identical.</p>
+        <p class="sp">So I built outward from the character. Mobile first, because that's where people check positions. Then tokens, components, a type scale, every state drawn. Five product areas shipped without drifting apart. <strong>Rex lives in labels, empty states and rewards. He never touches a price or a liquidation warning.</strong></p>
+        <p class="sp">That line is the system. Strip the dinosaur out and the components still work. Leave him in and you remember which app you were using.</p>
+      </div>
+    </section>
+
+    <footer class="details">
+      <div class="details__rule" data-reveal="rule"></div>
+      <div class="details__row" data-stagger>
+        <div><p class="details__label">ROLE</p><p class="details__value">Creative Director<br>Brand · Design System · Product UI/UX</p></div>
+        <div><p class="details__label">SCOPE</p><p class="details__value">Sub-brand identity &amp; mascot<br>Design system<br>Trading terminal, desktop &amp; mobile</p></div>
+        <div><p class="details__label">OUTPUT</p><p class="details__value">5 product areas — Trade, Portfolio, Earn, Rewards, Match4<br>12 Rex states · 20+ pixel icons</p></div>
+        <div><p class="details__label">YEAR</p><p class="details__value">2024 – 2026<br>Taipei</p></div>
+      </div>
+      <div class="details__rule" data-reveal="rule"></div>
+    </footer>
+  </main>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
