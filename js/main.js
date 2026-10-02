@@ -171,7 +171,9 @@
     const open = () => {
       iframe = document.createElement("iframe");
       iframe.src = frame.dataset.liveEmbed;
-      iframe.title = `${view.querySelector("img")?.alt || "Website"} (live)`;
+      const preview = view.querySelector("img, video");
+      iframe.title = `${preview?.alt || preview?.getAttribute("aria-label") || "Website"} (live)`;
+      preview?.pause?.();
       iframe.referrerPolicy = "strict-origin-when-cross-origin";
       iframe.allow = "clipboard-write";
       view.appendChild(iframe);
@@ -188,6 +190,7 @@
       iframe?.remove();
       iframe = null;
       frame.classList.remove("is-live");
+      if (!reduceMotion) view.querySelector("video")?.play().catch(() => {});
       toggle.textContent = "Try the live site";
       toggle.setAttribute("aria-pressed", "false");
     };
@@ -196,7 +199,7 @@
   });
 
   // Background videos only play while on screen, and never under reduced motion.
-  document.querySelectorAll(".cover__video").forEach((video) => {
+  document.querySelectorAll(".cover__video, .loop-video").forEach((video) => {
     if (reduceMotion) {
       video.removeAttribute("autoplay");
       video.pause();

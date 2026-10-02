@@ -120,13 +120,18 @@
     </div>
 
     <div class="capture" data-reveal="scale">
-      <div class="browser" data-live-embed="https://ht.teahouse.finance/">
+      <div class="browser" data-live-embed="https://ht.teahouse.finance/" style="--ratio: 1440 / 1252">
         <div class="browser__bar">
           <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
           <a class="browser__url" href="https://ht.teahouse.finance/" target="_blank" rel="noopener">ht.teahouse.finance</a>
         </div>
         <div class="browser__view">
-          <img src="assets/hightable/site-capture.webp" alt="The HighTable mint site" width="721" height="1118" loading="lazy">
+          <video class="loop-video" autoplay muted loop playsinline preload="metadata" poster="assets/hightable/site-poster.webp" width="1440" height="1252" aria-label="The HighTable mint site">
+            <source src="assets/hightable/site-720.webm" type="video/webm" media="(max-width: 767px)">
+            <source src="assets/hightable/site-720.mp4" type="video/mp4" media="(max-width: 767px)">
+            <source src="assets/hightable/site.webm" type="video/webm">
+            <source src="assets/hightable/site.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
       <button class="live-toggle" type="button" aria-pressed="false">Try the live site</button>
