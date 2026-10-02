@@ -849,6 +849,22 @@ strong { font-weight: 700; }
   line-height: 1;
 }
 
+/* Hero: the landing-page recording sits exactly over the screenshot baked
+   into the hero artwork (positions are the screenshot's box in that image). */
+.hero-shot { position: relative; }
+.hero-shot__screen {
+  position: absolute;
+  left: 17.43%;
+  top: 32.94%;
+  width: 66.39%;
+  height: 65.43%;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid #717171;
+  border-radius: min(20px, 1.39vw);
+  background: #06080b;
+}
+
 /* Screen recording frame, toned to the Teahouse greys. */
 .capture--wide { width: min(1150px, calc(100% - 2 * var(--gutter))); }
 .theme-teahouse .browser { background: #0b0d10; border-color: #27292a; }
@@ -1198,6 +1214,7 @@ strong { font-weight: 700; }
 
   /* ---------- Teahouse ---------- */
   .persona { width: calc(100% - 2 * var(--gutter)); gap: 30px; }
+  .hero-shot__screen { left: 0; top: 32.06%; width: 100%; height: 67.29%; border-width: 0.5px; border-radius: 2.1vw; }
   .block--lead { margin-bottom: 0; }
   .persona__quote { line-height: 1.2; }
   .persona__row { gap: 12px; }
