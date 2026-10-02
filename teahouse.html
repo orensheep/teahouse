@@ -42,7 +42,7 @@
 
     <div class="stack">
       <div class="block block--bleed" style="--w:1440px" data-reveal="scale">
-        <picture><source media="(max-width: 767px)" srcset="assets/teahouse/hero-mobile.webp" width="390" height="535"><img src="assets/teahouse/hero.webp" alt="Teahouse wordmark above the Teahouse.Finance landing page" width="1440" height="1478"></picture>
+        <picture><source media="(max-width: 767px)" srcset="assets/teahouse/hero-mobile.webp" width="390" height="535"><img src="assets/teahouse/hero.webp" alt="Teahouse wordmark above the Teahouse.Finance landing page" width="1440" height="1348"></picture>
       </div>
       <p class="live-link" data-reveal>View Live <a href="https://teahouse.finance/" target="_blank" rel="noopener">Teahouse.finance</a></p>
     </div>
@@ -61,37 +61,48 @@
       </div>
     </section>
 
-    <div class="block" style="--mw:264px; --w:489px" data-reveal="zoom">
-      <img src="assets/teahouse/pools-wordmark.svg" alt="pools" width="489" height="154" loading="lazy">
-    </div>
-
     <div class="persona">
       <article class="panel persona__card" data-reveal="left">
+        <p class="persona__name">POOLS</p>
         <p class="persona__cat">USER PROFILE</p>
         <p class="persona__quote">"I already do this. Show me if yours is better."</p>
         <div class="persona__rule"></div>
         <dl class="persona__rows">
           <div class="persona__row"><dt>Has</dt><dd>Existing LP positions somewhere else</dd></div>
           <div class="persona__row"><dt>Mental model</dt><dd>A position</dd></div>
-          <div class="persona__row"><dt>Knows</dt><dd>Everything above, plus Uniswap vs Oku · 0.01% vs 0.05% ·<br>delta-neutral · managed vs permissionless</dd></div>
+          <div class="persona__row"><dt>Knows</dt><dd>Everything above, plus Uniswap vs Oku · 0.01% vs 0.05% · <br>delta-neutral · managed vs permissionless</dd></div>
           <div class="persona__row"><dt>Doesn't know</dt><dd>Nothing that matters here</dd></div>
-          <div class="persona__row"><dt>Afraid of</dt><dd>Not losing money — losing edge. Being in a worse<br>pool than they could be</dd></div>
+          <div class="persona__row"><dt>Afraid of</dt><dd>Not losing money — losing edge. Being in a worse <br>pool than they could be</dd></div>
           <div class="persona__row"><dt>Arrives asking</dt><dd>"What's the risk-adjusted yield on this pair, on this chain?"</dd></div>
           <div class="persona__row"><dt>Succeeds when</dt><dd>They find the one vault matching a thesis they already had</dd></div>
         </dl>
       </article>
-      <div class="persona__features" data-stagger="right">
-        <article class="panel feature"><p class="feature__cat">FEATURE</p><div><p class="feature__title">Find My Fit</p><p class="feature__desc">Three questions, none of them about DeFi.</p></div></article>
-        <article class="panel feature"><p class="feature__cat">FEATURE</p><div><p class="feature__title">Vaults Index</p><p class="feature__desc">Every return shown next to what it costs.</p></div></article>
-        <article class="panel feature"><p class="feature__cat">FEATURE</p><div><p class="feature__title">Deposit Panel</p><p class="feature__desc">Every failure comes with a way out.</p></div></article>
-      </div>
+      <article class="panel persona__card" data-reveal="right">
+        <p class="persona__name">EASY EARN</p>
+        <p class="persona__cat">USER PROFILE</p>
+        <p class="persona__quote">"I own crypto. I don't want a second job."</p>
+        <div class="persona__rule"></div>
+        <dl class="persona__rows">
+          <div class="persona__row"><dt>Has</dt><dd>A wallet and one asset — ETH, BTC, or USDC</dd></div>
+          <div class="persona__row"><dt>Mental model</dt><dd>A savings account</dd></div>
+          <div class="persona__row"><dt>Knows</dt><dd>ETH · USDC · APR · wallet</dd></div>
+          <div class="persona__row"><dt>Doesn't know</dt><dd>LP · pair · fee tier · impermanent loss · AMM</dd></div>
+          <div class="persona__row"><dt>Afraid of</dt><dd>Losing the principal. Doing something they can't undo</dd></div>
+          <div class="persona__row"><dt>Arrives asking</dt><dd>"Where can my ETH earn something?"</dd></div>
+          <div class="persona__row"><dt>Succeeds when</dt><dd>They deposit without having to learn a single new word</dd></div>
+        </dl>
+      </article>
+    </div>
+
+    <div class="block block--lead" style="--mw:264px; --w:489px; --tw:400px" data-reveal="zoom">
+      <img src="assets/teahouse/pools-wordmark.svg" alt="pools" width="489" height="154" loading="lazy">
     </div>
 
     <!-- Vault index -->
     <section class="section">
       <header class="sh" data-stagger>
-        <p class="sh__cat">PRODUCT UX</p>
-        <h2 class="sh__title">Fifteen vaults, one job: help you rule things out.</h2>
+        <p class="sh__cat">PRODUCT PLAN</p>
+        <h2 class="sh__title">Many vaults, one job: help you rule things out.</h2>
       </header>
       <div class="prose" data-reveal>
         <p>Filters narrow from chain to strategy type. Find My Fit handles the people filters don't help — three questions, none about DeFi. Every row shows the return and what it costs: APR, drawdown, AUM, and how long it's been live.</p>
@@ -170,35 +181,14 @@
       <img src="assets/teahouse/flow-errors.webp" alt="Deposit error states: wrong chain, over balance, rejected approval, rejected deposit, returned deposit" width="1245" height="459" loading="lazy" data-reveal="left">
     </div>
 
-    <div class="block" style="--mw:264px; --w:638px" data-reveal="zoom">
+    <div class="block block--lead" style="--mw:264px; --w:638px; --tw:481px" data-reveal="zoom">
       <img src="assets/teahouse/easyearn-wordmark.svg" alt="easy Earn" width="638" height="138" loading="lazy">
-    </div>
-
-    <div class="persona">
-      <article class="panel persona__card" data-reveal="left">
-        <p class="persona__cat">USER PROFILE</p>
-        <p class="persona__quote">"I own crypto. I don't want a second job."</p>
-        <div class="persona__rule"></div>
-        <dl class="persona__rows">
-          <div class="persona__row"><dt>Has</dt><dd>A wallet and one asset — ETH, BTC, or USDC</dd></div>
-          <div class="persona__row"><dt>Mental model</dt><dd>A savings account</dd></div>
-          <div class="persona__row"><dt>Knows</dt><dd>ETH · USDC · APR · wallet</dd></div>
-          <div class="persona__row"><dt>Doesn't know</dt><dd>LP · pair · fee tier · impermanent loss · AMM</dd></div>
-          <div class="persona__row"><dt>Afraid of</dt><dd>Losing the principal. Doing something they can't undo</dd></div>
-          <div class="persona__row"><dt>Arrives asking</dt><dd>"Where can my ETH earn something?"</dd></div>
-          <div class="persona__row"><dt>Succeeds when</dt><dd>They deposit without having to learn a single new word</dd></div>
-        </dl>
-      </article>
-      <div class="persona__features" data-stagger="right">
-        <article class="panel feature"><p class="feature__cat">FEATURE</p><div><p class="feature__title">One card, one coin</p><p class="feature__desc">Pick the coin you already hold. That's the whole choice.</p></div></article>
-        <article class="panel feature"><p class="feature__cat">FEATURE</p><div><p class="feature__title">Same coin, any chain</p><p class="feature__desc">Switch networks without leaving the card.</p></div></article>
-        <article class="panel feature"><p class="feature__cat">FEATURE</p><div><p class="feature__title">Your position at a glance</p><p class="feature__desc">What you put in, what it's doing, what it earned.</p></div></article>
-      </div>
     </div>
 
     <!-- Easy-Earn -->
     <section class="section">
       <header class="sh" data-stagger>
+        <p class="sh__cat">PRODUCT PLAN</p>
         <h2 class="sh__title">Same coin, wherever it lives.</h2>
       </header>
       <div class="prose" data-reveal>
