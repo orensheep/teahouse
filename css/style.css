@@ -537,17 +537,6 @@ strong { font-weight: 700; }
 
 .browser__url:hover { color: #fff; }
 
-.browser__close {
-  flex: none;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--accent);
-  font: inherit;
-  font-size: 12px;
-  cursor: pointer;
-}
-
 .browser__view {
   position: relative;
   aspect-ratio: 721 / 1118;
@@ -572,11 +561,10 @@ strong { font-weight: 700; }
   transform-origin: 0 0;
 }
 
-.browser__play {
-  position: absolute;
-  left: 50%;
-  bottom: 32px;
-  padding: 14px 24px;
+.browser.is-live .browser__view img { display: none; }
+
+.live-toggle {
+  padding: 14px 26px;
   border: 0;
   border-radius: 999px;
   background: var(--accent);
@@ -584,18 +572,20 @@ strong { font-weight: 700; }
   font: inherit;
   font-size: 15px;
   font-weight: 700;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-  transform: translateX(-50%);
+  line-height: 1;
   cursor: pointer;
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+  transition: transform 0.3s var(--ease-out), background-color 0.25s ease, color 0.25s ease, box-shadow 0.3s ease;
 }
 
-.browser__play:hover { transform: translateX(-50%) scale(1.05); box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55); }
-.browser__play:focus-visible,
-.browser__close:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.live-toggle:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45); }
+.live-toggle:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 
-.browser.is-live .browser__view img,
-.browser.is-live .browser__play { display: none; }
+/* once the site is live the button turns into a quieter "back" control */
+.live-toggle[aria-pressed="true"] {
+  background: transparent;
+  color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
 
 /* Know your customers ------------------------------------------------------ */
 
