@@ -849,6 +849,12 @@ strong { font-weight: 700; }
   line-height: 1;
 }
 
+/* Screen recording frame, toned to the Teahouse greys. */
+.capture--wide { width: min(1150px, calc(100% - 2 * var(--gutter))); }
+.theme-teahouse .browser { background: #0b0d10; border-color: #27292a; }
+.theme-teahouse .browser__bar { background: #161819; border-bottom-color: #27292a; }
+.theme-teahouse .browser__url { color: #a3a3a3; }
+
 .persona__rule { height: 1px; background: var(--accent); opacity: 0.5; }
 
 .persona__rows { margin: 0; display: flex; flex-direction: column; gap: 15px; }
@@ -1029,10 +1035,9 @@ strong { font-weight: 700; }
 
   /* ---------- Teahouse ---------- */
   .persona { --persona-top: 32px; grid-template-columns: 1fr; gap: 44px; }
+  .capture--wide { width: calc(100% - 2 * var(--gutter)); }
 
   .stack[style*="gap:100px"] { gap: 56px !important; }
-  .stack img[style*="margin-top:81px"] { margin-top: 52px !important; }
-  .stack img[style*="margin-top:64px"] { margin-top: 40px !important; }
 
   .awards { width: min(var(--col), calc(100% - 2 * var(--gutter))); gap: 32px; }
 
