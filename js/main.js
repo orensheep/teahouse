@@ -150,6 +150,49 @@
     }, { threshold: [0, 0.6] }).observe(video);
   });
 
+  // Live site embed: the screenshot stays until the visitor asks for the real
+  // site, which then renders at its true width and is scaled to fit the frame.
+  document.querySelectorAll("[data-live-embed]").forEach((frame) => {
+    const view = frame.querySelector(".browser__view");
+    const play = frame.querySelector(".browser__play");
+    const close = frame.querySelector(".browser__close");
+    let iframe = null;
+    let observer = null;
+
+    const fit = () => {
+      if (!iframe) return;
+      const virtualWidth = window.innerWidth < 768 ? 390 : 1200; // the site's own mobile / desktop layout
+      const scale = view.clientWidth / virtualWidth;
+      iframe.style.width = `${virtualWidth}px`;
+      iframe.style.height = `${view.clientHeight / scale}px`;
+      iframe.style.transform = `scale(${scale})`;
+    };
+
+    play.addEventListener("click", () => {
+      iframe = document.createElement("iframe");
+      iframe.src = frame.dataset.liveEmbed;
+      iframe.title = "HighTable mint site (live)";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allow = "clipboard-write";
+      view.appendChild(iframe);
+      frame.classList.add("is-live");
+      close.hidden = false;
+      fit();
+      observer = new ResizeObserver(fit);
+      observer.observe(view);
+      iframe.focus();
+    });
+
+    close.addEventListener("click", () => {
+      observer?.disconnect();
+      iframe?.remove();
+      iframe = null;
+      frame.classList.remove("is-live");
+      close.hidden = true;
+      play.focus();
+    });
+  });
+
   // Background videos only play while on screen, and never under reduced motion.
   document.querySelectorAll(".cover__video").forEach((video) => {
     if (reduceMotion) {

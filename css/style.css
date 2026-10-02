@@ -492,7 +492,110 @@ strong { font-weight: 700; }
   gap: 22px;
 }
 
-.capture img { width: 100%; border: 1px solid #fff; }
+/* Browser frame around the mint site: screenshot by default, the real site
+   (scaled to fit) once the visitor asks for it. */
+.browser {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 10px;
+  background: #0d0718;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.browser__bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 36px;
+  padding: 0 12px;
+  background: #1d1430;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.browser__dots { display: flex; gap: 6px; }
+.browser__dots i { width: 10px; height: 10px; border-radius: 50%; background: #ff5f57; }
+.browser__dots i:nth-child(2) { background: #febc2e; }
+.browser__dots i:nth-child(3) { background: #28c840; }
+
+.browser__url {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #bdb5cc;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.browser__url:hover { color: #fff; }
+
+.browser__close {
+  flex: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.browser__view {
+  position: relative;
+  aspect-ratio: 721 / 1118;
+  overflow: hidden;
+}
+
+.browser__view img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.browser__view iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  background: #fff;
+  transform-origin: 0 0;
+}
+
+.browser__play {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  padding: 14px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #000;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+}
+
+.browser__play:hover { transform: translateX(-50%) scale(1.05); box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55); }
+.browser__play:focus-visible,
+.browser__close:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+.browser.is-live .browser__view img,
+.browser.is-live .browser__play { display: none; }
 
 /* Know your customers ------------------------------------------------------ */
 
