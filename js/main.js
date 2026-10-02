@@ -171,7 +171,7 @@
     const open = () => {
       iframe = document.createElement("iframe");
       iframe.src = frame.dataset.liveEmbed;
-      iframe.title = "HighTable mint site (live)";
+      iframe.title = `${view.querySelector("img")?.alt || "Website"} (live)`;
       iframe.referrerPolicy = "strict-origin-when-cross-origin";
       iframe.allow = "clipboard-write";
       view.appendChild(iframe);

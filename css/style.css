@@ -539,7 +539,7 @@ strong { font-weight: 700; }
 
 .browser__view {
   position: relative;
-  aspect-ratio: 721 / 1118;
+  aspect-ratio: var(--ratio, 721 / 1118); /* set --ratio on .browser to match its screenshot */
   overflow: hidden;
 }
 
