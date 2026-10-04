@@ -153,7 +153,7 @@
   // Live site embed: the screenshot stays until the visitor asks for the real
   // site, which then renders at its true width and is scaled to fit the frame.
   document.querySelectorAll("[data-live-embed]").forEach((frame) => {
-    const view = frame.querySelector(".browser__view");
+    const view = frame.querySelector(".browser__view, [data-live-view]");
     const toggle = frame.parentElement.querySelector(".live-toggle");
     if (!toggle) return;
     let iframe = null;

@@ -41,16 +41,18 @@
     </section>
 
     <div class="stack">
-      <div class="block block--bleed hero-shot" style="--w:1440px" data-reveal="scale">
+      <div class="block block--bleed hero-shot" style="--w:1440px" data-reveal="scale" data-live-embed="https://teahouse.finance/">
         <picture><source media="(max-width: 767px)" srcset="assets/teahouse/hero-mobile.webp" width="390" height="535"><img src="assets/teahouse/hero.webp" alt="Teahouse wordmark above the Teahouse.Finance landing page" width="1440" height="1348"></picture>
-        <video class="hero-shot__screen loop-video" autoplay muted loop playsinline preload="metadata" poster="assets/teahouse/landing-poster.webp" width="1442" height="1222" aria-label="The Teahouse.Finance landing page">
-          <source src="assets/teahouse/landing-780.webm" type="video/webm" media="(max-width: 767px)">
-          <source src="assets/teahouse/landing-780.mp4" type="video/mp4" media="(max-width: 767px)">
-          <source src="assets/teahouse/landing.webm" type="video/webm">
-          <source src="assets/teahouse/landing.mp4" type="video/mp4">
-        </video>
+        <div class="hero-shot__screen" data-live-view>
+          <video class="loop-video" autoplay muted loop playsinline preload="metadata" poster="assets/teahouse/landing-poster.webp" width="1442" height="1222" aria-label="The Teahouse.Finance landing page">
+            <source src="assets/teahouse/landing-780.webm" type="video/webm" media="(max-width: 767px)">
+            <source src="assets/teahouse/landing-780.mp4" type="video/mp4" media="(max-width: 767px)">
+            <source src="assets/teahouse/landing.webm" type="video/webm">
+            <source src="assets/teahouse/landing.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
-      <p class="live-link" data-reveal>View Live <a href="https://teahouse.finance/" target="_blank" rel="noopener">Teahouse.finance</a></p>
+      <button class="live-toggle" type="button" aria-pressed="false" data-reveal>Try the live site</button>
     </div>
 
     <!-- Segmentation -->

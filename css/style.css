@@ -245,25 +245,14 @@ strong { font-weight: 700; }
   text-align: center;
 }
 
-.caption a,
-.live-link a {
+.caption a {
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
   transition: color 0.2s ease;
 }
 
-.caption a:hover,
-.live-link a:hover { color: var(--accent); }
-
-.live-link {
-  margin: 0;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-}
-
-.live-link a { font-weight: 700; }
+.caption a:hover { color: var(--accent); }
 
 /* ---------- Details footer ---------- */
 
@@ -555,7 +544,8 @@ strong { font-weight: 700; }
   object-position: top;
 }
 
-.browser__view iframe {
+.browser__view iframe,
+[data-live-view] iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -565,7 +555,8 @@ strong { font-weight: 700; }
 }
 
 .browser.is-live .browser__view img,
-.browser.is-live .browser__view video { display: none; }
+.browser.is-live .browser__view video,
+.is-live [data-live-view] video { display: none; }
 
 .live-toggle {
   padding: 14px 26px;
@@ -858,11 +849,17 @@ strong { font-weight: 700; }
   top: 32.94%;
   width: 66.39%;
   height: 65.43%;
-  object-fit: cover;
-  object-position: top center;
+  overflow: hidden;
   border: 1px solid #717171;
   border-radius: min(20px, 1.39vw);
   background: #06080b;
+}
+
+.hero-shot__screen video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
 }
 
 /* Screen recording frame, toned to the Teahouse greys. */
@@ -1222,7 +1219,6 @@ strong { font-weight: 700; }
   .persona__row dd { padding: 0; }
   .persona__row dd br { display: none; }
 
-  .live-link { font-size: 14px; }
   .awards { width: min(348px, calc(100% - 2 * var(--gutter))); grid-template-columns: 1fr; gap: 30px; }
 
   /* ---------- Tea-REX ---------- */
