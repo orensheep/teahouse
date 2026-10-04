@@ -957,18 +957,16 @@ strong { font-weight: 700; }
 .only-tablet,
 .only-mobile { display: none !important; }
 
-/* Rex gauge: the three rich states are animated GIFs laid over their slots
-   in the strip (x / y / size are % of the strip, per breakpoint). */
-.rex-gauge { position: relative; }
-.rex-gauge .rex-gauge__gif {
-  position: absolute;
-  left: var(--x);
-  top: var(--y);
-  width: var(--s);
-  height: auto;
-  image-rendering: pixelated;
-  pointer-events: none;
+/* Rex gauge: one sprite per state (animated GIFs and still PNGs share an
+   80x85 frame), from rich to RIP, bottoms on a common baseline. */
+.rex-row {
+  width: min(1103px, calc(100% - 2 * var(--gutter)));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
 }
+.rex-row img { width: 84px; height: auto; aspect-ratio: 80 / 85; object-fit: contain; image-rendering: pixelated; }
 
 @media (max-width: 1199px) {
   :root {
@@ -1068,7 +1066,7 @@ strong { font-weight: 700; }
   .awards { width: min(var(--col), calc(100% - 2 * var(--gutter))); gap: 32px; }
 
   /* ---------- Tea-REX ---------- */
-  .rex-gauge .rex-gauge__gif { left: var(--tx); top: var(--ty); width: var(--ts); }
+  .rex-row { width: min(625px, calc(100% - 2 * var(--gutter))); justify-content: center; column-gap: 20px; }
   .subhead { width: min(var(--col), calc(100% - 2 * var(--gutter))); }
   .jungle {
     width: min(var(--col), calc(100% - 2 * var(--gutter)));
@@ -1236,7 +1234,8 @@ strong { font-weight: 700; }
   .awards { width: min(348px, calc(100% - 2 * var(--gutter))); grid-template-columns: 1fr; gap: 30px; }
 
   /* ---------- Tea-REX ---------- */
-  .rex-gauge .rex-gauge__gif { left: var(--mx); top: var(--my); width: var(--ms); }
+  .rex-row { width: min(287px, calc(100% - 2 * var(--gutter))); column-gap: 7px; }
+  .rex-row img { width: 91px; }
   .subhead { width: calc(100% - 2 * var(--gutter)); }
   .jungle { width: calc(100% - 2 * var(--gutter)); }
   .jungle img { width: 359px; }
