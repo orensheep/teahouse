@@ -34,9 +34,9 @@
       </header>
       <div class="prose" data-reveal style="--i:3">
         <p><strong>A vault you can find. A deposit you can finish. A strategy you can actually read.</strong></p>
-        <p>Teahouse works like a hedge fund you reach through a wallet: you deposit, professional strategies run the position, you withdraw whenever you want. Easy to describe, hard to believe. There's no support line, no chargeback, no undo <span class="light">— </span><strong>the interface is the only reassurance there is.</strong></p>
-        <p>DeFi doesn't lose people at the visual layer. It loses them at the cognitive one. My job was to make that technology usable by one person at a time: not a fund with analysts, but someone putting in a few hundred dollars with no second opinion.</p>
-        <p><strong>Product UX doesn't decorate the technology. It carries it. </strong><span class="light">Every screen here exists to turn what the vaults actually do into something one person can act on.</span></p>
+        <p>Teahouse works like a hedge fund you access through a wallet: deposit, let professional strategies run the position, withdraw anytime. Easy to explain, hard to trust. No support line, no chargebacks, no undo <span class="light">— </span><strong>the interface is the only reassurance.</strong></p>
+        <p>DeFi doesn't lose people on visuals. It loses them on comprehension. My job was to make it usable for one person at a time — not a fund with analysts, but someone depositing a few hundred dollars with no one to ask.</p>
+        <p><strong>Product UX doesn't decorate the technology. It carries it. </strong><span class="light">Every screen turns what the vaults do into something one person can act on.</span></p>
       </div>
     </section>
 
@@ -63,9 +63,9 @@
         <p class="sh__sub">Pools vs. Easy Earn</p>
       </header>
       <div class="prose" data-reveal>
-        <p>Two products, one engine underneath. Pools came first. That one's for people who already provide liquidity — they know what they're doing, they just want to know whether ours is better.</p>
-        <p>Easy-Earn came after, for someone holding some ETH who wants it to earn something. That's as far as their interest goes. The vaults are the same. What changes is how much each site tells you, and which words it uses.</p>
-        <p>The engineering was support to make the flow smooth. Where people dropped off was the deposit. My job was to get one person, holding one coin, all the way through it — without making them learn anything first.</p>
+        <p>Two products on one engine. Pools came first — for liquidity providers who know the game and just want to know if ours is better.</p>
+        <p>Easy-Earn came next — for someone holding ETH who just wants it to earn. The vaults are identical. What changes is how much each site explains, and in which words.</p>
+        <p>Engineering made the flow smooth. The real drop-off was the deposit. My job was to get one person, with one coin, all the way through — without learning anything first.</p>
       </div>
     </section>
 
@@ -78,9 +78,9 @@
         <dl class="persona__rows">
           <div class="persona__row"><dt>Has</dt><dd>Existing LP positions somewhere else</dd></div>
           <div class="persona__row"><dt>Mental model</dt><dd>A position</dd></div>
-          <div class="persona__row"><dt>Knows</dt><dd>Everything above, plus Uniswap vs Oku · 0.01% vs 0.05% · <br>delta-neutral · managed vs permissionless</dd></div>
+          <div class="persona__row"><dt>Knows</dt><dd>Uniswap vs Oku · 0.01% vs 0.05% fee tiers · <br>delta-neutral · managed vs permissionless</dd></div>
           <div class="persona__row"><dt>Doesn't know</dt><dd>Nothing that matters here</dd></div>
-          <div class="persona__row"><dt>Afraid of</dt><dd>Not losing money — losing edge. Being in a worse <br>pool than they could be</dd></div>
+          <div class="persona__row"><dt>Afraid of</dt><dd>Not losing money — losing edge. Sitting in a worse <br>pool than they could be</dd></div>
           <div class="persona__row"><dt>Arrives asking</dt><dd>"What's the risk-adjusted yield on this pair, on this chain?"</dd></div>
           <div class="persona__row"><dt>Succeeds when</dt><dd>They find the one vault matching a thesis they already had</dd></div>
         </dl>
@@ -97,7 +97,7 @@
           <div class="persona__row"><dt>Doesn't know</dt><dd>LP · pair · fee tier · impermanent loss · AMM</dd></div>
           <div class="persona__row"><dt>Afraid of</dt><dd>Losing the principal. Doing something they can't undo</dd></div>
           <div class="persona__row"><dt>Arrives asking</dt><dd>"Where can my ETH earn something?"</dd></div>
-          <div class="persona__row"><dt>Succeeds when</dt><dd>They deposit without having to learn a single new word</dd></div>
+          <div class="persona__row"><dt>Succeeds when</dt><dd>They deposit without learning a single new word</dd></div>
         </dl>
       </article>
     </div>
@@ -113,7 +113,7 @@
         <h2 class="sh__title">Many vaults, one job: help you rule things out.</h2>
       </header>
       <div class="prose" data-reveal>
-        <p>Filters narrow from chain to strategy type. Find My Fit handles the people filters don't help — three questions, none about DeFi. Every row shows the return and what it costs: APR, drawdown, AUM, and how long it's been live.</p>
+        <p>Filters narrow by chain, then strategy type. For people filters don't help, Find My Fit asks three questions — none about DeFi. Every row shows the return and its cost: APR, drawdown, AUM and time live.</p>
       </div>
     </section>
 
@@ -124,30 +124,30 @@
     <!-- Deposit flow -->
     <section class="section">
       <header class="sh" data-stagger>
-        <h2 class="sh__title">No screen in this flow is a dead end</h2>
+        <h2 class="sh__title">No screen in this flow is a dead end.</h2>
       </header>
       <div class="prose" data-reveal>
-        <p>The top row is what it looks like when everything works — one live button at a time, so you always know which step you're on and how many are left.</p>
-        <p>The bottom row is every way it doesn't. Wrong chain, over balance, rejected signature, no gas, slippage. Each one names what happened, says whether it cost you anything, and hands back the next thing to press.</p>
+        <p>Top row: everything works. One active button at a time, so you always know which step you're on and how many are left.</p>
+        <p>Bottom row: every way it fails — wrong chain, over balance, rejected signature, no gas, slippage. Each screen says what happened, whether it cost you anything, and what to press next.</p>
       </div>
     </section>
 
     <div class="carousel only-mobile" data-carousel aria-roledescription="carousel" aria-label="Deposit flow when everything works" data-reveal>
       <div class="carousel__track" tabindex="0">
         <figure class="carousel__slide" aria-roledescription="slide" aria-label="1 of 5">
-          <figcaption><p class="carousel__title">1. CONNECT</p><p class="carousel__desc">The button is the only thing you can do.</p></figcaption>
+          <figcaption><p class="carousel__title">1. CONNECT</p><p class="carousel__desc">One button, one action.</p></figcaption>
           <img src="assets/teahouse/flow/ok-1.webp" alt="" width="280" height="287" loading="lazy">
         </figure>
         <figure class="carousel__slide" aria-roledescription="slide" aria-label="2 of 5">
-          <figcaption><p class="carousel__title">2. ENTER</p><p class="carousel__desc">Both actions inert until there's an amount to act on</p></figcaption>
+          <figcaption><p class="carousel__title">2. ENTER</p><p class="carousel__desc">Both buttons stay disabled until you enter an amount.</p></figcaption>
           <img src="assets/teahouse/flow/ok-2.webp" alt="" width="280" height="333" loading="lazy">
         </figure>
         <figure class="carousel__slide" aria-roledescription="slide" aria-label="3 of 5">
-          <figcaption><p class="carousel__title">3. APPROVE</p><p class="carousel__desc">Take user to check on the wallet.</p></figcaption>
+          <figcaption><p class="carousel__title">3. APPROVE</p><p class="carousel__desc">Sends you to your wallet to approve.</p></figcaption>
           <img src="assets/teahouse/flow/ok-3.webp" alt="" width="280" height="402" loading="lazy">
         </figure>
         <figure class="carousel__slide" aria-roledescription="slide" aria-label="4 of 5">
-          <figcaption><p class="carousel__title">4. DEPOSIT</p><p class="carousel__desc">Approve dims, Deposit lights. Progress through the two transactions stays legible</p></figcaption>
+          <figcaption><p class="carousel__title">4. DEPOSIT</p><p class="carousel__desc">Approve dims, Deposit lights up. You always see where you are across both transactions.</p></figcaption>
           <img src="assets/teahouse/flow/ok-4.webp" alt="" width="280" height="422" loading="lazy">
         </figure>
         <figure class="carousel__slide" aria-roledescription="slide" aria-label="5 of 5">
@@ -161,23 +161,23 @@
     <div class="carousel only-mobile" data-carousel aria-roledescription="carousel" aria-label="Deposit flow when something goes wrong" data-reveal>
       <div class="carousel__track" tabindex="0">
         <figure class="carousel__slide" aria-roledescription="slide" aria-label="1 of 5">
-          <figcaption><p class="carousel__title">1. CONNECT</p><p class="carousel__desc">Wallet on the wrong chain. The primary button becomes Switch to Ethereum</p></figcaption>
+          <figcaption><p class="carousel__title">1. CONNECT</p><p class="carousel__desc">Wrong chain. The main button becomes “Switch to Ethereum.”</p></figcaption>
           <img src="assets/teahouse/flow/err-1.webp" alt="" width="280" height="287" loading="lazy">
         </figure>
         <figure class="carousel__slide" aria-roledescription="slide" aria-label="2 of 5">
-          <figcaption><p class="carousel__title">2. ENTER</p><p class="carousel__desc">If user input the amount exceed the balance, adjust it to max.</p></figcaption>
+          <figcaption><p class="carousel__title">2. ENTER</p><p class="carousel__desc">Amount over your balance? It's capped at max.</p></figcaption>
           <img src="assets/teahouse/flow/err-2.webp" alt="" width="280" height="382" loading="lazy">
         </figure>
         <figure class="carousel__slide" aria-roledescription="slide" aria-label="3 of 5">
-          <figcaption><p class="carousel__title">3. APPROVE</p><p class="carousel__desc">Signature rejected in the wallet. The panel returns with the amount still typed, so restarting costs nothing.</p></figcaption>
+          <figcaption><p class="carousel__title">3. APPROVE</p><p class="carousel__desc">Signature rejected. The panel comes back with your amount still filled in, so retrying costs nothing.</p></figcaption>
           <img src="assets/teahouse/flow/err-3.webp" alt="" width="280" height="400" loading="lazy">
         </figure>
         <figure class="carousel__slide" aria-roledescription="slide" aria-label="4 of 5">
-          <figcaption><p class="carousel__title">4a. DEPOSIT</p><p class="carousel__desc">The button is the only thing you can do, so that's what it says</p></figcaption>
+          <figcaption><p class="carousel__title">4a. DEPOSIT</p><p class="carousel__desc">Deposit rejected in the wallet. The button names the one next step.</p></figcaption>
           <img src="assets/teahouse/flow/err-4.webp" alt="" width="280" height="422" loading="lazy">
         </figure>
         <figure class="carousel__slide" aria-roledescription="slide" aria-label="5 of 5">
-          <figcaption><p class="carousel__title">4b. DEPOSIT</p><p class="carousel__desc">The button is the only thing you can do, so that's what it says</p></figcaption>
+          <figcaption><p class="carousel__title">4b. DEPOSIT</p><p class="carousel__desc">Deposit returned. The button names the one next step.</p></figcaption>
           <img src="assets/teahouse/flow/err-5.webp" alt="" width="280" height="401" loading="lazy">
         </figure>
       </div>
@@ -200,9 +200,9 @@
         <h2 class="sh__title">Same coin, wherever it lives.</h2>
       </header>
       <div class="prose" data-reveal>
-        <p>Easy-Earn asks one question: which coin do you already hold? One card per asset, and that's the entire decision.</p>
-        <p>Your ETH doesn't stop being ETH because it sits on Arbitrum. Each card covers every chain the asset lives on — you deposit from wherever your money already is, and <strong>My Assets totals it in one number regardless of chain.</strong></p>
-        <p>No pairs, no fee tiers, no protocol names. Nothing on this screen needs explaining before you can use it.</p>
+        <p>Easy-Earn asks one question: which coin do you hold? One card per asset — that's the whole decision.</p>
+        <p>ETH on Arbitrum is still ETH. Each card covers every chain the asset lives on, so you deposit from wherever your money is — and <strong>My Assets shows one total across all chains.</strong></p>
+        <p>No pairs, no fee tiers, no protocol names. Nothing here needs explaining before you use it.</p>
       </div>
     </section>
 
@@ -230,10 +230,10 @@
       <header class="sh" data-stagger>
         <p class="sh__cat">BRAND DEVELOPMENT</p>
         <h2 class="sh__title">From Leaf Sprout to Teahouse.</h2>
-        <p class="sh__sub">The T is a sprout — a tea leaf uncurling, drawn as a single unbroken line on a circle grid.</p>
+        <p class="sh__sub">The T is a tea leaf sprouting, drawn as one unbroken line on a circle grid.</p>
       </header>
       <div class="prose" data-reveal>
-        <p>One stroke, no start and no end. It holds at any size — a favicon, a sticker, a pin, a wall — and it stretches across the whole family: Easy-Earn, Pools, Tea-REX. Same line, different room.</p>
+        <p>One stroke, no start, no end. It holds at any size — favicon, sticker, pin, wall — and extends across the family: Easy-Earn, Pools, Tea-REX. Same line, different room.</p>
       </div>
     </section>
 
@@ -249,13 +249,13 @@
     <!-- Closing -->
     <section class="section">
       <header class="sh" data-stagger>
-        <p class="sh__cat">WHAT THIS ABILITY ACTUALLY IS</p>
+        <p class="sh__cat">THE OUTCOME</p>
         <h2 class="sh__title">It started with a customer list. It ended as two products.</h2>
       </header>
       <div class="prose prose--soft" data-reveal>
-        <p>HighTable ended with a customer list — four archetypes, each one a self-declared risk appetite. That's where this starts. Knowing who they were only helped if the product could show them what they were choosing.</p>
-        <p class="sp">So risk stopped being a label and became numbers you can compare: <strong>drawdown beside return, fees separated from incentives, how long a vault has actually run.</strong> Then the list split in two.</p>
-        <p class="sp">People who already provide liquidity got Pools, with every figure and every filter. People who just hold got Easy-Earn, where the only question is which coin you own. Same engine, same vaults, two front doors — because the useful question changes depending on who's asking. A protocol that couldn't see its users ended up with two products shaped around the two kinds it turned out to have.</p>
+        <p>HighTable ended with a customer list: four archetypes, each a self-declared risk appetite. This project starts there. Knowing who users are only helps if the product shows them what they're choosing.</p>
+        <p class="sp">So risk stopped being a label and became numbers you can compare: <strong>drawdown next to return, fees separate from incentives, how long each vault has actually run.</strong> Then the list split in two.</p>
+        <p class="sp">Liquidity providers got Pools — every figure, every filter. Holders got Easy-Earn — one question: which coin do you own? Same engine, same vaults, two front doors, because the right question depends on who's asking. A protocol that couldn't see its users ended up with two products built for the two kinds it found.</p>
       </div>
     </section>
 
