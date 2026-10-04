@@ -957,6 +957,19 @@ strong { font-weight: 700; }
 .only-tablet,
 .only-mobile { display: none !important; }
 
+/* Rex gauge: the three rich states are animated GIFs laid over their slots
+   in the strip (x / y / size are % of the strip, per breakpoint). */
+.rex-gauge { position: relative; }
+.rex-gauge .rex-gauge__gif {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s);
+  height: auto;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
 @media (max-width: 1199px) {
   :root {
     --page-top: 185px;
@@ -1055,6 +1068,7 @@ strong { font-weight: 700; }
   .awards { width: min(var(--col), calc(100% - 2 * var(--gutter))); gap: 32px; }
 
   /* ---------- Tea-REX ---------- */
+  .rex-gauge .rex-gauge__gif { left: var(--tx); top: var(--ty); width: var(--ts); }
   .subhead { width: min(var(--col), calc(100% - 2 * var(--gutter))); }
   .jungle {
     width: min(var(--col), calc(100% - 2 * var(--gutter)));
@@ -1222,6 +1236,7 @@ strong { font-weight: 700; }
   .awards { width: min(348px, calc(100% - 2 * var(--gutter))); grid-template-columns: 1fr; gap: 30px; }
 
   /* ---------- Tea-REX ---------- */
+  .rex-gauge .rex-gauge__gif { left: var(--mx); top: var(--my); width: var(--ms); }
   .subhead { width: calc(100% - 2 * var(--gutter)); }
   .jungle { width: calc(100% - 2 * var(--gutter)); }
   .jungle img { width: 359px; }
