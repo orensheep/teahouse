@@ -165,7 +165,7 @@
           <p class="ht-card__cat">SELF-IDENTIFICATION</p>
           <h3 class="ht-card__title">Personality Test</h3>
           <p class="ht-card__body"><strong>Every member arrives pre-classified</strong>Free, fun, two minutes. Finishing turns an anonymous visitor into a buyer we can reach.</p>
-          <a class="ht-button only-desktop" href="https://ht.teahouse.finance/" target="_blank" rel="noopener">Take the Personality Test</a>
+          <a class="ht-button only-desktop" href="quiz.html" data-quiz-open>Take the Personality Test</a>
           <div class="ht-list">
             <p class="ht-list__label">THE FUNNEL</p>
             <div class="ht-list__rule"></div>
@@ -195,7 +195,7 @@
       </div>
 
       <div class="ht-quiz only-tablet" data-reveal>
-        <a class="ht-button" href="https://ht.teahouse.finance/" target="_blank" rel="noopener">Take the Personality Test</a>
+        <a class="ht-button" href="quiz.html" data-quiz-open>Take the Personality Test</a>
       </div>
 
       <div class="table-real">
@@ -248,6 +248,11 @@
       <div class="details__rule" data-reveal="rule"></div>
     </footer>
   </main>
+
+  <dialog class="quiz-modal" aria-label="HighTable personality test">
+    <button class="quiz-modal__close" type="button" aria-label="Close the personality test">&times;</button>
+    <iframe class="quiz-modal__frame" title="What kind of HighTable member are you?"></iframe>
+  </dialog>
 
   <script src="js/main.js" defer></script>
 </body>

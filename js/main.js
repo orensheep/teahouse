@@ -198,6 +198,34 @@
     toggle.addEventListener("click", () => (iframe ? close() : open()));
   });
 
+  // Personality test: opens quiz.html in a pop-up over the page (the link
+  // still works on its own if scripts are off or the visitor opens it in a tab).
+  const quizModal = document.querySelector(".quiz-modal");
+  if (quizModal && typeof quizModal.showModal === "function") {
+    const frame = quizModal.querySelector(".quiz-modal__frame");
+    let opener = null;
+    const closeQuiz = () => quizModal.open && quizModal.close();
+    document.querySelectorAll("[data-quiz-open]").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+        event.preventDefault();
+        opener = link;
+        frame.src = link.getAttribute("href"); // fresh quiz every time
+        quizModal.showModal();
+        document.documentElement.style.overflow = "hidden";
+        quizModal.querySelector(".quiz-modal__close").focus();
+      });
+    });
+    quizModal.querySelector(".quiz-modal__close").addEventListener("click", closeQuiz);
+    quizModal.addEventListener("click", (event) => { if (event.target === quizModal) closeQuiz(); });
+    window.addEventListener("message", (event) => { if (event.data === "quiz:close") closeQuiz(); });
+    quizModal.addEventListener("close", () => {
+      document.documentElement.style.overflow = "";
+      frame.src = "about:blank";
+      opener?.focus();
+    });
+  }
+
   // Background videos only play while on screen, and never under reduced motion.
   document.querySelectorAll(".cover__video, .loop-video").forEach((video) => {
     if (reduceMotion) {

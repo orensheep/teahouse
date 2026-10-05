@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Kind of HighTable Member Are You?</title>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  color-scheme:dark;
+  --bg:#1A1A1A; --bg2:#141414;
+  --lime:#C5F82A; --lime-dim:rgba(197,248,42,.34);
+  --purple:#8B7BF7; --white:#fff;
+  --grey:#8A8A8A; --grey2:#5A5A5A;
+}
+html,body{height:100%}
+body{
+  background:var(--bg); color:var(--white);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased;
+  overflow:hidden;
+}
+.marker{font-family:'Permanent Marker','Chalkboard SE','Comic Sans MS',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:400;letter-spacing:.01em}
+
+/* ── SHELL ── */
+.shell{height:100vh;display:grid;grid-template-columns:60% 40%;position:relative}
+
+/* ── PROGRESS ── */
+.prog{position:absolute;top:48px;left:60%;right:0;z-index:15;padding:0 56px;display:none}
+.prog.on{display:block}
+.prog-track{display:flex;align-items:center;gap:0}
+.prog-x{
+  font-size:15px;line-height:1;color:var(--grey2);flex-shrink:0;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-weight:700;transition:color .3s;
+}
+.prog-x.done,.prog-x.now{color:var(--lime)}
+.prog-line{flex:1;height:1px;background:#3A3A3A}
+
+/* ── LEFT ART ── */
+.art{
+  position:relative;overflow:hidden;background:var(--bg);
+  display:grid;place-items:center;padding:64px 56px;
+}
+.art img{
+  max-width:100%;max-height:100%;width:auto;height:auto;
+  object-fit:contain;display:block;
+  animation:artIn .55s cubic-bezier(.2,.9,.3,1);
+}
+@keyframes artIn{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+
+/* ── RIGHT PANEL ── */
+.panel{
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:92px 56px 56px;position:relative;
+}
+.inner{width:100%;max-width:400px;text-align:center}
+
+/* intro */
+.eyebrow{
+  font-size:11px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--grey);margin-bottom:22px;
+}
+.q-title{
+  font-size:46px;line-height:1.05;margin-bottom:26px;color:var(--white);
+}
+.q-text{
+  font-size:17px;line-height:1.8;color:#E2E2E2;margin-bottom:38px;
+  white-space:pre-line;min-height:92px;
+}
+.q-text.small{font-size:15.5px;line-height:1.75}
+
+/* ── OPTIONS ── */
+.opts{display:flex;flex-direction:column;gap:17px}
+.opt{
+  position:relative;width:100%;min-height:54px;background:transparent;border:0;
+  cursor:pointer;padding:0;display:grid;place-items:center;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;
+  color:var(--purple);transition:color .25s;
+}
+.opt svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.opt .base{fill:none;stroke:var(--lime-dim);stroke-width:1.6}
+.opt .beam{
+  fill:none;stroke:var(--lime);stroke-width:2.4;stroke-linecap:round;
+  stroke-dasharray:16 84;
+  filter:drop-shadow(0 0 6px rgba(197,248,42,.9));
+  animation:travel 5.6s linear infinite;
+}
+.opt:nth-child(2) .beam{animation-delay:-1.9s}
+.opt:nth-child(3) .beam{animation-delay:-3.8s}
+@keyframes travel{ to { stroke-dashoffset:-100 } }
+.opt span{position:relative;z-index:2;padding:14px 44px 14px 24px;line-height:1.35}
+
+.opt:hover .base{stroke:var(--lime)}
+.opt:hover{color:var(--white)}
+
+/* answered */
+.opts.done .beam{animation-play-state:paused;opacity:0;transition:opacity .45s}
+.opts.done .opt{cursor:default;color:var(--grey2)}
+.opts.done .opt .base{stroke:#3A3A3A}
+
+.opt.picked{color:#111!important}
+.opt.picked .base{stroke:var(--lime)!important;stroke-width:2}
+.opt.picked .fillbg{fill:var(--lime)}
+.opt.picked::after{
+  content:'✓';position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  z-index:3;font-size:14px;color:#111;font-weight:800;line-height:1;
+}
+
+/* ── NEXT ── */
+.next{
+  position:absolute;right:56px;bottom:44px;display:flex;align-items:center;gap:12px;
+  font-size:20px;color:var(--grey2);cursor:not-allowed;transition:color .3s;
+  background:none;border:0;font-family:'Permanent Marker','Chalkboard SE','Comic Sans MS',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+.next.on{color:var(--lime);cursor:pointer}
+.next svg{width:38px;height:14px}
+.next path{stroke:currentColor;stroke-width:2;fill:none}
+
+/* ── START / RESULT ── */
+.center{
+  position:fixed;inset:0;overflow-y:auto;display:flex;flex-direction:column;
+  align-items:center;justify-content:safe center;padding:56px;text-align:center;
+  background:var(--bg);z-index:30;
+}
+.center.hide{display:none}
+.start-t{font-size:56px;line-height:1.02;margin-bottom:20px}
+.start-b{font-size:17px;line-height:1.8;color:#C8C8C8;max-width:440px;margin-bottom:38px}
+.btn{
+  background:var(--lime);color:#111;border:0;border-radius:4px;
+  padding:16px 34px;font-size:15px;font-weight:700;cursor:pointer;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;transition:transform .15s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--grey);border:1px solid #3A3A3A}
+.btn-ghost:hover{color:var(--white);border-color:#5A5A5A}
+
+/* reveal */
+.reveal-t{
+  font-size:clamp(46px,7.5vw,104px);color:var(--lime);line-height:1;
+  letter-spacing:.01em;animation:pop .5s cubic-bezier(.2,.9,.3,1.3);
+}
+@keyframes pop{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
+
+/* result */
+.res{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center;max-width:900px;text-align:left}
+.res-fig{display:grid;place-items:center}
+.res-fig img{width:100%;max-width:300px;display:block;filter:drop-shadow(0 18px 40px rgba(0,0,0,.55))}
+.res-eye{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--grey);margin-bottom:12px}
+.res-name{font-size:58px;line-height:1;margin-bottom:12px}
+.res-tag{font-size:17px;color:var(--lime);margin-bottom:20px;font-weight:600}
+.res-desc{font-size:14.5px;line-height:1.85;color:#C0C0C0;margin-bottom:24px}
+.res-perks{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:28px}
+.res-perks li{display:flex;gap:11px;font-size:13.5px;color:#D8D8D8;line-height:1.55}
+.res-perks li::before{content:'◆';color:var(--lime);font-size:8px;margin-top:5px;flex-shrink:0}
+.res-btns{display:flex;gap:12px}
+.back{
+  position:absolute;left:28px;bottom:26px;font-size:12px;color:var(--grey2);
+  text-decoration:none;letter-spacing:.06em;z-index:40;
+}
+.back:hover{color:var(--lime)}
+
+@media(max-width:1000px){
+  body{overflow:auto}
+  .shell{grid-template-columns:1fr;height:auto;min-height:100vh}
+  .art{height:38vh}
+  .prog{position:static;padding:24px 28px 0;display:none}
+  .prog.on{display:block}
+  .panel{padding:36px 28px 96px}
+  .q-title{font-size:38px}
+  .next{right:28px;bottom:32px}
+  .res{grid-template-columns:1fr;gap:28px;text-align:center}
+  .res-fig{max-width:240px;margin:0 auto}
+  .res-perks li{text-align:left}
+  .res-btns{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <div class="art"><img id="art" src="assets/hightable/quiz/q1-mission.webp" alt=""></div>
+
+  <div class="panel">
+    <div class="prog" id="prog">
+      <div class="prog-track" id="progTrack"></div>
+    </div>
+
+    <div class="inner" id="stage" style="display:none">
+      <div class="eyebrow" id="eyebrow">Stage 1 of 4</div>
+      <h1 class="q-title marker" id="qTitle">THE MISSION</h1>
+      <p class="q-text" id="qText"></p>
+      <div class="opts" id="opts"></div>
+    </div>
+
+    <button class="next marker" id="next">
+      NEXT
+      <svg viewBox="0 0 38 14"><path d="M0 7h32M26 1l6 6-6 6"/></svg>
+    </button>
+  </div>
+</div>
+
+
+<!-- START -->
+<div class="center" id="start">
+  <div class="eyebrow">Teahouse HighTable · Personality Test</div>
+  <h1 class="start-t marker">WHAT KIND OF<br>MEMBER ARE YOU?</h1>
+  <p class="start-b">The HighTable has four archetypes. Four scenarios decide which one you are — answer on instinct, not on logic.</p>
+  <button class="btn" id="begin">Begin Mission →</button>
+</div>
+
+<!-- REVEAL -->
+<div class="center hide" id="reveal">
+  <div class="reveal-t marker" id="revealT"></div>
+</div>
+
+<!-- RESULT -->
+<div class="center hide" id="result">
+  <div class="res">
+    <div class="res-fig"><img id="resImg" src="" alt=""></div>
+    <div>
+      <div class="res-eye">You are a</div>
+      <div class="res-name marker" id="resName"></div>
+      <div class="res-tag" id="resTag"></div>
+      <div class="res-desc" id="resDesc"></div>
+      <ul class="res-perks" id="resPerks"></ul>
+      <div class="res-btns">
+        <button class="btn" id="again">↺ Try again</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+const questions = [
+  { title:"THE MISSION", art:"assets/hightable/quiz/q1-mission.webp",
+    scenario:"You're in a game of LOL when you hear the secret knock on your door.\nTap tap-tap-tap tap-tap tap.\nMust be a job from the HighTable.",
+    choices:[
+      {label:"Open door", shape:"a", scores:{gambler:2,assassin:0,socialite:1,hacker:0},
+       feedback:"You swing the door open without hesitation. Bold. Reckless. Exactly what the HighTable expects from its Gamblers."},
+      {label:"Check surveillance", shape:"b", scores:{gambler:0,assassin:1,socialite:0,hacker:2},
+       feedback:"You pull up the feed before moving. Someone who checks surveillance before acting — the Hacker instinct is strong in you."},
+      {label:"Finish game", shape:"c", scores:{gambler:0,assassin:2,socialite:1,hacker:0},
+       feedback:"You don't rush. You finish what you started, then deal with the door. Patience and priorities — the Assassin's way."}]},
+
+  { title:"THE OFFER", art:"assets/hightable/quiz/q2-offer.webp",
+    scenario:"A stranger slides a note across the bar.\nAn invitation to a private DeFi vault — 3× the market rate.\nNo questions asked.",
+    choices:[
+      {label:"Take it immediately", shape:"a", scores:{gambler:2,assassin:0,socialite:1,hacker:0},
+       feedback:"High risk, high reward. You were born for this. The Gambler doesn't wait for certainty — certainty is for other people."},
+      {label:"Ask who sent it first", shape:"b", scores:{gambler:0,assassin:0,socialite:2,hacker:1},
+       feedback:"The network matters as much as the deal. Before you move money, you move people. Very Socialite of you."},
+      {label:"Research before committing", shape:"c", scores:{gambler:0,assassin:1,socialite:0,hacker:2},
+       feedback:"You close the note and open your terminal. Data first, decisions second. The Hacker sees angles others miss."}]},
+
+  { title:"THE POSITION", art:"assets/hightable/quiz/q3-position.webp",
+    scenario:"Your strategy is up 40%.\nThe position is still open.\nThe market is moving.",
+    choices:[
+      {label:"Close it — lock the gains", shape:"a", scores:{gambler:0,assassin:1,socialite:2,hacker:0},
+       feedback:"You secure the win and move on. Socialites know when the party's over — and they always leave before the crowd does."},
+      {label:"Let it ride", shape:"b", scores:{gambler:2,assassin:0,socialite:0,hacker:0},
+       feedback:"40% is just the beginning. The Gambler doesn't play to break even. They play until the table turns."},
+      {label:"Set a trailing stop and sleep", shape:"c", scores:{gambler:0,assassin:2,socialite:0,hacker:1},
+       feedback:"Calculated precision. You've already decided your exit before you entered. That's the Assassin's edge."}]},
+
+  { title:"THE SEAT", art:"assets/hightable/quiz/q4-seat.webp",
+    scenario:"The HighTable has one seat left.\nThey ask what you bring.\nWhat do you say?",
+    choices:[
+      {label:"First-mover instinct and risk appetite", shape:"a", scores:{gambler:2,assassin:0,socialite:0,hacker:0},
+       feedback:"You go where others don't dare. Risk is your language. The Gambler earns their seat by sitting down first."},
+      {label:"The right people in the right rooms", shape:"b", scores:{gambler:0,assassin:0,socialite:2,hacker:0},
+       feedback:"Connections are capital. The Socialite doesn't just work the network — they are the network."},
+      {label:"Precision, patience, and no wasted moves", shape:"c", scores:{gambler:0,assassin:2,socialite:0,hacker:0},
+       feedback:"Every move deliberate. No noise, no waste. The Assassin's value is in what they don't do."}]}
+];
+
+const archetypes = {
+  gambler:{name:"GAMBLER", tagline:"High risk. Higher reward. No apologies.",
+    desc:"Gamblers are the first movers of the HighTable — the ones who walk into rooms nobody else dares to enter. They don't wait for certainty, because certainty is for other people.",
+    perks:["Priority access to High-Risk strategies","Additional $TEA rewards in high-risk vaults","[ALL IN] — an edge in lotteries and airdrops"],
+    img:"assets/hightable/quiz/gambler.webp"},
+  assassin:{name:"ASSASSIN", tagline:"Precision. Patience. No wasted moves.",
+    desc:"The Assassin doesn't rush. Every position is pre-planned, every exit calculated before the entry is made. In a world of noise, the Assassin brings silence.",
+    perks:["Priority access to Medium-Risk strategies","Additional $TEA rewards in medium-risk vaults","[SNIPE] — private lottery pool for a partner whitelist"],
+    img:"assets/hightable/quiz/assassin.webp"},
+  socialite:{name:"SOCIALITE", tagline:"The room matters more than the rollercoaster.",
+    desc:"Socialites move capital by moving people. They know who to ask, when to leave, and why the network is worth more than any single trade.",
+    perks:["Priority access to Low-Risk strategies","Additional $TEA rewards in low-risk vaults","[CHARM] — special role and privileges in Discord"],
+    img:"assets/hightable/quiz/socialite.webp"},
+  hacker:{name:"HACKER", tagline:"I already read the contract.",
+    desc:"Solitary, technical, and several steps ahead. The Hacker reads the code before the pitch and finds the angle everyone else walked past.",
+    perks:["Priority access to every risk category","Additional $TEA rewards across all strategies","[???] — backdoor access to backtest data"],
+    img:"assets/hightable/quiz/hacker.webp"}
+};
+
+const W=336,H=54,R=5,I=2;
+const RECT = `M${I+R},${I} H${W-I-R} A${R},${R} 0 0 1 ${W-I},${I+R}`
+           + ` V${H-I-R} A${R},${R} 0 0 1 ${W-I-R},${H-I}`
+           + ` H${I+R} A${R},${R} 0 0 1 ${I},${H-I-R}`
+           + ` V${I+R} A${R},${R} 0 0 1 ${I+R},${I} Z`;
+function pathFor(){ return RECT; }
+
+let qi=0, picked=null, tally={gambler:0,assassin:0,socialite:0,hacker:0};
+const $=id=>document.getElementById(id);
+
+function buildProgress(){
+  const t=$('progTrack'); t.innerHTML='';
+  for(let i=0;i<questions.length;i++){
+    const x=document.createElement('span');
+    x.className='prog-x'+(i<qi?' done':i===qi?' now':'');
+    x.textContent='✕'; t.appendChild(x);
+    if(i<questions.length-1){const l=document.createElement('div');l.className='prog-line';t.appendChild(l);}
+  }
+}
+
+function render(){
+  const q=questions[qi];
+  picked=null;
+  $('art').src=q.art;
+  $('eyebrow').textContent=`Stage ${qi+1} of ${questions.length}`;
+  $('qTitle').textContent=q.title;
+  $('qText').textContent=q.scenario;
+  $('qText').className='q-text';
+  const box=$('opts'); box.className='opts'; box.innerHTML='';
+  q.choices.forEach((c,i)=>{
+    const b=document.createElement('button');
+    b.className='opt';
+    b.innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+        <path class="fillbg" d="${RECT}" fill="transparent"/>
+        <path class="base" d="${RECT}"/>
+        <path class="beam" pathLength="100" d="${RECT}"/>
+      </svg><span>${c.label}</span>`;
+    b.onclick=()=>pick(i,b);
+    box.appendChild(b);
+  });
+  $('next').classList.remove('on');
+  buildProgress();
+}
+
+function pick(i,el){
+  if(picked!==null) return;
+  picked=i;
+  const c=questions[qi].choices[i];
+  for(const k in c.scores) tally[k]+=c.scores[k];
+  $('opts').classList.add('done');
+  el.classList.add('picked');
+  $('qText').textContent=c.feedback;
+  $('qText').className='q-text small';
+  $('next').classList.add('on');
+}
+
+$('next').onclick=()=>{
+  if(picked===null) return;
+  if(qi<questions.length-1){ qi++; render(); }
+  else showResult();
+};
+
+function showResult(){
+  let best='gambler';
+  for(const k in tally) if(tally[k]>tally[best]) best=k;
+  const a=archetypes[best];
+  $('revealT').textContent='You are a '+a.name.charAt(0)+a.name.slice(1).toLowerCase();
+  $('reveal').classList.remove('hide');
+  setTimeout(()=>{ $('reveal').classList.add('hide'); paint(a); }, 2400);
+}
+
+function paint(a){
+  $('resImg').src=a.img;
+  $('resName').textContent=a.name;
+  $('resTag').textContent=a.tagline;
+  $('resDesc').textContent=a.desc;
+  $('resPerks').innerHTML=a.perks.map(p=>`<li>${p}</li>`).join('');
+  $('result').classList.remove('hide');
+}
+
+$('begin').onclick=()=>{
+  $('start').classList.add('hide');
+  $('stage').style.display='block';
+  $('prog').classList.add('on');
+  render();
+};
+$('again').onclick=()=>{
+  qi=0; tally={gambler:0,assassin:0,socialite:0,hacker:0};
+  $('result').classList.add('hide');
+  $('reveal').classList.add('hide');
+  render();
+};
+
+// Inside the portfolio pop-up: Esc closes it from within the quiz too.
+if (window.parent !== window) {
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') window.parent.postMessage('quiz:close', '*'); });
+}
+</script>
+</body>
+</html>

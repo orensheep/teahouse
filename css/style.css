@@ -981,6 +981,43 @@ strong { font-weight: 700; }
   pointer-events: none;
 }
 
+/* Personality test pop-up (HighTable) */
+.quiz-modal {
+  width: min(1200px, 94vw);
+  height: min(780px, 90vh);
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: #1a1a1a;
+  overflow: hidden;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+}
+.quiz-modal::backdrop { background: rgba(8, 4, 16, 0.78); backdrop-filter: blur(4px); }
+.quiz-modal[open] { animation: quizIn 0.35s var(--ease-out); }
+@keyframes quizIn { from { opacity: 0; transform: translateY(16px) scale(0.98); } }
+.quiz-modal__frame { display: block; width: 100%; height: 100%; border: 0; }
+.quiz-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.quiz-modal__close:hover { background: var(--accent); color: #000; }
+.quiz-modal__close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .quiz-modal[open] { animation: none; } }
+
 @media (max-width: 1199px) {
   :root {
     --page-top: 185px;
@@ -1246,6 +1283,7 @@ strong { font-weight: 700; }
 
   .awards { width: min(348px, calc(100% - 2 * var(--gutter))); grid-template-columns: 1fr; gap: 30px; }
 
+  .quiz-modal { width: 100vw; height: 100dvh; border: 0; border-radius: 0; }
   /* ---------- Tea-REX ---------- */
   .sprite-overlay .sprite-overlay__gif { left: var(--mx); top: var(--my); width: var(--ms); }
   .rex-row { width: min(287px, calc(100% - 2 * var(--gutter))); column-gap: 7px; }
