@@ -145,7 +145,8 @@
       } else if (armed && entry.intersectionRatio >= 0.6) {
         armed = false;
         video.currentTime = 0;
-        video.play().catch(() => { armed = true; });
+        // Autoplay blocked (e.g. Safari in Low Power Mode): hand the visitor a play button.
+        video.play().catch(() => { armed = true; video.controls = true; });
       }
     }, { threshold: [0, 0.6] }).observe(video);
   });
@@ -235,8 +236,12 @@
     }
     if (!("IntersectionObserver" in window)) return;
     new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) video.play().catch(() => {});
-      else video.pause();
+      if (entry.isIntersecting) {
+        video.play().catch(() => {
+          // Screen recordings get a play button if autoplay is blocked; the cover stays a still.
+          if (video.classList.contains("loop-video")) video.controls = true;
+        });
+      } else video.pause();
     }).observe(video);
   });
 
