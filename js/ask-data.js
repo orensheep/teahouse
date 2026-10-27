@@ -149,8 +149,8 @@ window.ASK_OREN = {
         zh: "你在哪裡？可以遠端工作嗎？",
       },
       a: {
-        en: "I'm based in Linkou, New Taipei, Taiwan (GMT+8). Remote is how I'm used to working, so working across time zones isn't new to me.",
-        zh: "我住在台灣新北市林口（GMT+8）。遠端是我習慣的工作型態，跨時區合作對我來說並不陌生。",
+        en: "I'm based in Linkou, New Taipei, Taiwan (GMT+8). Remote is how I'm used to working, so working across time zones isn't new to me. I'm also open to relocating for the right role.",
+        zh: "我住在台灣新北市林口（GMT+8）。遠端是我習慣的工作型態，跨時區合作對我來說並不陌生。遇到合適的職位，我也可以搬遷。",
       },
       next: ["looking", "contact"],
     },
