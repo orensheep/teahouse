@@ -27,7 +27,19 @@ window.ASK_OREN = {
         en: "All three are for Teahouse Finance, a DeFi protocol, from 2022 to 2026 in Taipei.\n\nOn HighTable I was the creative director: the archetype world, the personality quiz, the NFT mint and the real-world events. On Teahouse.Finance I was the product designer: brand, design system, and the deposit and withdraw flows for Pools and Easy-Earn. On Tea-REX I was the sole designer: sub-brand, mascot, design system and every screen on desktop and mobile.",
         zh: "三個專案都是為 DeFi 協議 Teahouse Finance 做的，時間是 2022 到 2026 年，在台北。\n\nHighTable 我是創意總監，負責角色世界觀、性格測驗、NFT 鑄造網站和實體活動。Teahouse.Finance 我是產品設計師，負責品牌、設計系統，以及 Pools 和 Easy-Earn 的存提款流程。Tea-REX 我是唯一的設計師，從子品牌、吉祥物、設計系統到桌機和手機的每一個畫面都是我做的。",
       },
-      next: ["brand-to-product", "complex", "looking"],
+      next: ["teahouse-what", "brand-to-product", "looking"],
+    },
+    {
+      id: "teahouse-what",
+      q: {
+        en: "What is Teahouse Finance?",
+        zh: "Teahouse Finance 是什麼樣的公司？",
+      },
+      a: {
+        en: "A Taipei-based DeFi asset manager. It works like a hedge fund you reach through a wallet: you deposit, algorithmic strategies manage the liquidity position for you, and you can withdraw anytime. Investors choose between low-, medium- and high-risk strategies.\n\nIn April 2023 it raised a US$2 million round led by AppWorks, bringing total funding to about US$5 million, with earlier backers including Pantera Capital.",
+        zh: "Teahouse 是一家台灣的 DeFi 資產管理新創，像一個透過錢包就能使用的避險基金：你存入資金，演算法策略替你管理流動性部位，隨時可以提領。投資人可以在低、中、高風險的策略之間選擇。\n\n2023 年 4 月，Teahouse 完成由 AppWorks 領投的 200 萬美元募資，累計募資約 500 萬美元，早期投資人包括 Pantera Capital。",
+      },
+      next: ["results", "role", "complex"],
     },
     {
       id: "complex",
@@ -124,7 +136,10 @@ window.ASK_OREN = {
         en: "What kind of role are you looking for?",
         zh: "你現在在找什麼樣的工作？",
       },
-      a: null, // TODO: role, team size, industries, full-time / contract
+      a: {
+        en: "Next, I want to design AI products. After four years in DeFi, I'm ready to move on from crypto, and AI is where I want to go.\n\nI'm open to full-time roles, and freelance or contract projects are very welcome too.",
+        zh: "下一步，我想做 AI 產品。在 DeFi 待了四年，我準備離開加密貨幣領域，AI 是我最期待的方向。\n\n全職職位我都考慮，也非常歡迎接案或合約形式的合作。",
+      },
       next: ["location", "contact", "role"],
     },
     {
@@ -133,7 +148,10 @@ window.ASK_OREN = {
         en: "Where are you based? Are you open to remote work?",
         zh: "你在哪裡？可以遠端工作嗎？",
       },
-      a: null, // TODO: city, time zone, remote / relocation
+      a: {
+        en: "I'm based in Linkou, New Taipei, Taiwan (GMT+8). Remote is how I'm used to working, so working across time zones isn't new to me.",
+        zh: "我住在台灣新北市林口（GMT+8）。遠端是我習慣的工作型態，跨時區合作對我來說並不陌生。",
+      },
       next: ["looking", "contact"],
     },
     {
@@ -142,7 +160,10 @@ window.ASK_OREN = {
         en: "What did you do before Teahouse?",
         zh: "加入 Teahouse 之前你做什麼？",
       },
-      a: null, // TODO: years of experience, previous roles and industries
+      a: {
+        en: "Before Teahouse I had ten years of experience across user research, usability engineering and design management.\n\nThat's why my projects start with who the user is and where they get stuck, before any screen is drawn.",
+        zh: "加入 Teahouse 之前，我已有十年工作經驗，橫跨使用者研究、易用性工程和設計管理。\n\n所以我的專案總是先釐清使用者是誰、卡在哪裡，然後才開始畫畫面。",
+      },
       next: ["role", "looking"],
     },
     {
@@ -151,7 +172,10 @@ window.ASK_OREN = {
         en: "What results did these projects have?",
         zh: "這些專案有什麼成果？",
       },
-      a: null, // TODO: numbers you can share (deposits, conversion, mint sell-out...)
+      a: {
+        en: "Teahouse's total value locked peaked at US$9.17 million on 30 July 2024, according to DefiLlama. In its Q1 2024 update, the team reported assets under management above US$7.5 million.\n\nOn HighTable, 5,587 passes went to holders: 5,566 VIP and 21 OG, each one a wallet that told us who it was.",
+        zh: "根據 DeFi 數據平台 DefiLlama，Teahouse 的總鎖倉量（TVL）在 2024 年 7 月 30 日達到歷史高點 917 萬美元。團隊在 2024 年第一季的更新中也公布，資產管理規模（AUM）超過 750 萬美元。\n\nHighTable 共發出 5,587 張通行證：5,566 張 VIP、21 張 OG，每一張背後都是一個願意告訴我們自己是誰的錢包。",
+      },
       next: ["complex", "looking"],
     },
     {
