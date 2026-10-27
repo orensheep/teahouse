@@ -24,3 +24,9 @@ No build step: serve the folder with any static server, e.g. `python3 -m http.se
 Add `data-reveal` to any element (`fade`, `left`, `right`, `scale`, `zoom`, `wipe`, `rule`, or empty for fade-up),
 or `data-stagger="<variant>"` to a parent to reveal its children in sequence. `data-parallax="<speed>"` moves an
 element relative to its parent while scrolling. All motion is disabled under `prefers-reduced-motion`.
+
+## Ask Oren
+
+A floating "Ask Oren" button on each case study opens a small chat of pre-written answers, in English and Chinese.
+The questions and answers live in `js/ask-data.js`; `js/ask.js` renders them. An answer left as `null` hides its question,
+so personal questions only appear once they are written. Set `contactUrl` to show a "Message me" link under the chat.
