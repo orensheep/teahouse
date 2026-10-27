@@ -10,8 +10,8 @@
    ========================================================================== */
 
 window.ASK_OREN = {
-  // Shown under every answer as "Still curious? Message me". Leave "" to hide.
-  contactUrl: "",
+  // Shown under every answer as "Still curious? Email me". Leave "" to hide.
+  contactUrl: "mailto:oren.huang@gmail.com",
 
   // Offered when the panel opens (after the current page's own question).
   starters: ["role", "complex", "looking", "contact"],
@@ -184,7 +184,10 @@ window.ASK_OREN = {
         en: "How can I reach you?",
         zh: "怎麼聯絡你？",
       },
-      a: null, // TODO: LinkedIn / email, and whether a resume is available
+      a: {
+        en: "Email me at oren.huang@gmail.com. I'm happy to share my resume, and to talk about a full-time role or a freelance project.",
+        zh: "寫信到 oren.huang@gmail.com 給我。我很樂意提供履歷，也歡迎聊全職職位或接案合作。",
+      },
       next: ["looking", "role"],
     },
   ],

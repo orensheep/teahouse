@@ -29,4 +29,4 @@ element relative to its parent while scrolling. All motion is disabled under `pr
 
 A floating "Ask Oren" button on each case study opens a small chat of pre-written answers, in English and Chinese.
 The questions and answers live in `js/ask-data.js`; `js/ask.js` renders them. An answer left as `null` hides its question,
-so personal questions only appear once they are written. Set `contactUrl` to show a "Message me" link under the chat.
+so personal questions only appear once they are written. Set `contactUrl` (a web or `mailto:` link) to show a contact link under the chat.

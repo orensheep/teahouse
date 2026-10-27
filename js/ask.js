@@ -19,7 +19,7 @@
       subtitle: "Answers I wrote myself, not a live chat.",
       hello: "Hi, I'm Oren. Curious about my work? Pick a question.",
       more: "Other questions",
-      contact: "Still curious? Message me",
+      contact: "Still curious? Email me",
       close: "Close",
       lang: "中文",
       langLabel: "切換成中文",
@@ -30,7 +30,7 @@
       subtitle: "這些是我親自寫好的回答，不是即時聊天。",
       hello: "嗨，我是 Oren。對我的作品有興趣嗎？選一個問題吧。",
       more: "其他問題",
-      contact: "還想多聊？傳訊息給我",
+      contact: "還想多聊？寫信給我",
       close: "關閉",
       lang: "EN",
       langLabel: "Switch to English",
@@ -85,10 +85,12 @@
   const chips = el("div", "ask__chips");
   const foot = el("footer", "ask__foot");
   const contact = el("a", "ask__contact");
-  contact.target = "_blank";
-  contact.rel = "noopener";
   if (data.contactUrl) {
     contact.href = data.contactUrl;
+    if (!data.contactUrl.startsWith("mailto:")) {
+      contact.target = "_blank";
+      contact.rel = "noopener";
+    }
     foot.append(contact);
   }
 
